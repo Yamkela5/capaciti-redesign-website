@@ -1,0 +1,482 @@
+/* Impact Hero Section */
+.impact-hero {
+  padding: 8rem 0 5rem;
+  background: linear-gradient(135deg, var(--capaciti-pink) 0%, rgba(241, 209, 209, 0.7) 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.impact-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.impact-text {
+  text-align: center;
+}
+
+.impact-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--capaciti-navy);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.impact-description {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 48rem;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.impact-stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.impact-stat:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.impact-stat .stat-number {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--capaciti-salmon);
+  line-height: 1;
+}
+
+.impact-stat .stat-suffix {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--capaciti-salmon);
+  line-height: 1;
+}
+
+.impact-stat .stat-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--capaciti-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+/* Floating Circles */
+.floating-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: transform 0.1s ease-out;
+}
+
+.circle-1 {
+  width: 120px;
+  height: 120px;
+  background: var(--capaciti-navy);
+  top: 15%;
+  right: 10%;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--capaciti-salmon);
+  bottom: 20%;
+  right: 15%;
+  opacity: 0.6;
+}
+
+.circle-3 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, var(--capaciti-purple) 0%, var(--capaciti-salmon) 100%);
+  top: 40%;
+  right: 5%;
+}
+
+.circle-4 {
+  width: 80px;
+  height: 80px;
+  background: var(--capaciti-purple);
+  top: 60%;
+  right: 25%;
+}
+
+.circle-5 {
+  width: 100px;
+  height: 100px;
+  background: rgba(129, 21, 208, 0.4);
+  bottom: 10%;
+  right: 35%;
+}
+
+/* Detailed Impact Section */
+.detailed-impact {
+  padding: 5rem 0;
+  background: white;
+}
+
+.impact-section {
+  margin-bottom: 5rem;
+}
+
+/* Success Stories */
+.success-stories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.story-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--capaciti-purple);
+  transition: all 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.story-quote {
+  margin-bottom: 1.5rem;
+}
+
+.quote-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--capaciti-purple);
+  margin-bottom: 1rem;
+}
+
+.quote-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #374151;
+  font-style: italic;
+}
+
+.story-author {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+.author-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--capaciti-navy);
+  margin-bottom: 0.25rem;
+}
+
+.author-role {
+  font-size: 0.875rem;
+  color: var(--capaciti-purple);
+  font-weight: 500;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-top: 4px solid var(--capaciti-salmon);
+}
+
+.metric-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.metric-icon {
+  width: 4rem;
+  height: 4rem;
+  background: var(--gradient-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.metric-icon .icon {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
+
+.metric-card .metric-number {
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--capaciti-purple);
+  line-height: 1;
+}
+
+.metric-card .metric-suffix {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--capaciti-purple);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--capaciti-navy);
+  margin: 0.5rem 0;
+}
+
+.metric-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Companies Slider */
+.companies-slider {
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem 0;
+}
+
+.companies-track {
+  display: flex;
+  animation: slide 30s linear infinite;
+  width: calc(200% + 2rem);
+}
+
+.company-logo {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.company-logo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logo-img {
+  max-width: 140px;
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.3s ease;
+}
+
+.company-logo:hover .logo-img {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Slider Controls */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.slider-btn {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slider-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(129, 21, 208, 0.3);
+}
+
+.slider-btn .btn-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.slider-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background: var(--capaciti-purple);
+  transform: scale(1.2);
+}
+
+/* Impact CTA */
+.impact-cta {
+  background: linear-gradient(135deg, var(--capaciti-navy) 0%, var(--capaciti-purple) 100%);
+  border-radius: 2rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+  margin-top: 3rem;
+}
+
+.cta-content {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cta-buttons .btn-outline {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.cta-buttons .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Animations */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.companies-slider:hover .companies-track {
+  animation-play-state: paused;
+}
+
+/* Responsive Design for Impact Page */
+@media (min-width: 640px) {
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .impact-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .impact-text {
+    text-align: left;
+  }
+
+  .impact-title {
+    font-size: 4rem;
+  }
+
+  .impact-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .impact-title {
+    font-size: 4.5rem;
+  }
+
+  .success-stories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

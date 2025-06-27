@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - CAPACITI</title>
+    <meta name="description" content="Stay updated with CAPACITI's latest news, events, and industry insights. Discover our tech events, partnerships, and upcoming opportunities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          line-height: 1.6;
+          color: #333;
+          background-color: #fff;
+        }
+
+        /* CAPACITI Brand Colors */
+        :root {
+          --capaciti-navy: #1d2951;
+          --capaciti-purple: #8115d0;
+          --capaciti-salmon: #f25251;
+          --capaciti-pink: #f1d1d1;
+          --white: #ffffff;
+          --gray-50: #f9fafb;
+          --gray-100: #f3f4f6;
+          --gray-200: #e5e7eb;
+          --gray-300: #d1d5db;
+          --gray-400: #9ca3af;
+          --gray-500: #6b7280;
+          --gray-600: #4b5563;
+          --gray-700: #374151;
+          --gray-800: #1f2937;
+          --gray-900: #111827;
+        }
+
+        /* Container */
+        .container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+          .container {
+            padding: 0 2rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .container {
+            padding: 0 2rem;
+          }
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-weight: 700;
+          line-height: 1.2;
+          color: var(--capaciti-navy);
+        }
+
+        /* Buttons */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.75rem 1.5rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          text-decoration: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0.875rem;
+        }
+
+        .btn-primary {
+          background: linear-gradient(135deg, var(--capaciti-navy) 0%, var(--capaciti-purple) 100%);
+          color: white;
+        }
+
+        .btn-primary:hover {
+          box-shadow: 0 10px 25px rgba(129, 21, 208, 0.25);
+          transform: translateY(-2px);
+        }
+
+        /* Utility Classes */
+        .hidden {
+          display: none !important;
+        }
+
+        .active {
+          display: block;
+        }
+
+        /* Header */
+        .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 50;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .nav-container {
+          padding: 0 1.5rem;
+        }
+
+        .nav-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 5rem;
+        }
+
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          text-decoration: none;
+        }
+
+        .logo-img {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        .logo-text {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--capaciti-navy);
+        }
+
+        .nav-links {
+          display: none;
+          align-items: center;
+          gap: 2rem;
+          margin-right: 9rem;
+        }
+
+        .nav-link {
+          color: var(--gray-700);
+          text-decoration: none;
+          font-weight: 500;
+          position: relative;
+          transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+          color: var(--capaciti-purple);
+        }
+
+        .nav-link::after {
+          content: "";
+          position: absolute;
+          bottom: -0.25rem;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(135deg, var(--capaciti-purple) 0%, var(--capaciti-salmon) 100%);
+          transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+          width: 100%;
+        }
+
+        .nav-cta {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.5rem;
+          height: 2.5rem;
+          border: none;
+          background: none;
+          color: var(--capaciti-navy);
+          cursor: pointer;
+        }
+
+        .mobile-nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          border-top: 1px solid var(--gray-200);
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .mobile-nav.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .mobile-nav-content {
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .mobile-nav-link {
+          color: var(--gray-700);
+          text-decoration: none;
+          font-weight: 500;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid var(--gray-100);
+          transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+          color: var(--capaciti-purple);
+        }
+
+        .mobile-cta {
+          margin-top: 1rem;
+        }
+
+        @media (min-width: 1024px) {
+          .nav-links {
+            display: flex;
+          }
+
+          .nav-cta {
+            display: flex;
+          }
+
+          .mobile-menu-btn {
+            display: none;
+          }
+
+          .mobile-nav {
+            display: none;
+          }
+        }
+
+        /* Hero Section */
+        .hero-section {
+          position: relative;
+          min-height: 70vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, var(--capaciti-navy) 0%, var(--capaciti-purple) 50%, var(--capaciti-salmon) 100%);
+          color: white;
+          overflow: hidden;
+          margin-top: 5rem;
+        }
+
+        .hero-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+          animation: floatDots 20s ease-in-out infinite;
+          z-index: 1;
+        }
+
+        .hero-section::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial基本-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+          z-index: 2;
+          animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        .hero-content {
+          position: relative;
+          z-index: 3;
+          text-align: center;
+          max-width: 800px;
+          padding: 3rem 2rem;
+          animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-content h1 {
+          font-size: 3.5rem;
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+          background: linear-gradient(135deg, #ffffff 0%, var(--capaciti-pink) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+          line-height: 1.2;
+          animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .hero-content p {
+          font-size: 1.25rem;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.9);
+          margin-bottom: 2rem;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          animation: fadeInUp 1.2s ease-out 0.3s both;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes titleGlow {
+          from {
+            filter: drop-shadow(0 0 10px rgba(241, 209, 209, 0.3));
+          }
+          to {
+            filter: drop-shadow(0 0 20px rgba(241, 209, 209, 0.6));
+          }
+        }
+
+        @keyframes floatDots {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+
+        @keyframes gradientShift {
+          0%, 100% {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.05) rotate(2deg);
+          }
+        }
+
+        /* Main Content */
+        .main-content {
+          padding: 5rem 0;
+          background: var(--gray-50);
+        }
+
+        /* Section Header */
+        .section-header {
+          text-align: center;
+          margin-bottom: 4rem;
+        }
+
+        .section-badge {
+          display: inline-block;
+          background: linear-gradient(135deg, var(--capaciti-purple) 0%, var(--capaciti-salmon) 100%);
+          color: white;
+          padding: 0.5rem 1.5rem;
+          border-radius: 2rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .section-title {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          color: var(--capaciti-navy);
+        }
+
+        .section-description {
+          font-size: 1.125rem;
+          color: var(--gray-600);
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        /* Event Categories */
+        .event-categories {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 3rem;
+        }
+
+        .category-btn {
+          background: white;
+          border: 2px solid var(--gray-200);
+          color: var(--gray-700);
+          padding: 0.75rem 1.5rem;
+          border-radius: 2rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0.875rem;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+          background: linear-gradient(135deg, var(--capaciti-navy) 0%, var(--capaciti-purple) 100%);
+          border-color: var(--capaciti-purple);
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(129, 21, 208, 0.3);
+        }
+
+        /* Events Grid */
+        .events-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 2rem;
+          margin-bottom: 4rem;
+        }
+
+        .event-card {
+          background: white;
+          border-radius: 1rem;
+          overflow: hidden;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .event-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-image {
+          position: relative;
+          height: 200px;
+          background: linear-gradient(135deg, var(--capaciti-navy) 0%, var(--capaciti-purple) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .event-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .event-status {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .event-status.past {
+          background: rgba(107, 114, 128, 0.9);
+          color: white;
+        }
+
+        .event-status.upcoming {
+          background: rgba(34, 197, 94, 0.9);
+          color: white;
+        }
+
+        .event-date-badge {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: rgba(255, 255, 255, 0.9);
+          color: var(--capaciti-navy);
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+        }
+
+        .event-content {
+          padding: 1.5rem;
+        }
+
+        .event-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          font-size: 0.875rem;
+          color: var(--gray-600);
+        }
+
+        .event-category {
+          color: var(--capaciti-purple);
+          font-weight: 600;
+        }
+
+        .event-time,
+        .event-location {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+        }
+
+        .meta-icon {
+          width: 1rem;
+          height: 1rem;
+        }
+
+        .event-title {
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+          color: var(--capaciti-navy);
+          line-height: 1.3;
+        }
+
+        .event-description {
+          color: var(--gray-600);
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+        }
+
+        .event-action {
+          background: linear-gradient(135deg, var(--capaciti-navy) 0%, var(--capaciti-purple) 100%);
+          color: white;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          font-size: 0.875rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+        }
+
+        .event-action:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(129, 21, 208, 0.3);
+        }
+
+        .event-action.disabled {
+          background: var(--gray-400);
+          cursor: not-allowed;
+        }
+
+        .event-action.disabled:hover {
+          transform: none;
+          box-shadow: none;
+        }
+
+        /* Section Titles */
+        .section-block {
+          margin-bottom: 4rem;
+        }
+
+        .section-block-title {
+          font-size: 2rem;
+          color: var(--capaciti-navy);
+          margin-bottom: 2rem;
+          text-align: center;
+        }
+
+        /* Popup Styles */
+        .popup {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          padding: 2rem;
+          border-radius: 1rem;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+          z-index: 1000;
+          text-align: center;
+          display: none;
+          max-width: 400px;
+          width: 90%;
+        }
+
+        .popup.active {
+          display: block;
+          animation: fadeIn 0.3s ease-in;
+        }
+
+        .popup h3 {
+          font-size: 1.25rem;
+          color: var(--capaciti-navy);
+          margin-bottom: 1rem;
+        }
+
+        .popup p {
+          color: var(--gray-600);
+          margin-bottom: 1.5rem;
+        }
+
+        .popup .btn {
+          width: 100%;
+        }
+
+        .popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+          display: none;
+        }
+
+        .popup-overlay.active {
+          display: block;
+        }
+
+        /* Form Styles */
+        .register-form {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 2rem;
+          background: var(--gray-50);
+          border-radius: 1rem;
+        }
+
+        .register-form h3 {
+          font-size: 1.5rem;
+          margin-bottom: 1.5rem;
+          text-align: center;
+        }
+
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+          display: block;
+          font-weight: 600;
+          color: var(--capaciti-navy);
+          margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+          width: 100%;
+          padding: 0.75rem;
+          border: 2px solid var(--gray-200);
+          border-radius: 0.5rem;
+          font-size: 1rem;
+          color: var(--gray-700);
+          transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+          outline: none;
+          border-color: var(--capaciti-purple);
+          box-shadow: 0 0 5px rgba(129, 21, 208, 0.3);
+        }
+
+        .form-group input::placeholder {
+          color: var(--gray-400);
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translate(-50%, -60%);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .hero-content h1 {
+            font-size: 2.5rem;
+          }
+         
+          .section-title {
+            font-size: 2rem;
+          }
+         
+          .events-grid {
+            grid-template-columns: 1fr;
+          }
+         
+          .event-categories {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .register-form {
+            padding: 1.5rem;
+          }
+
+          .popup {
+            width: 95%;
+            padding: 1.5rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-content h1 {
+            font-size: 2rem;
+          }
+         
+          .hero-content p {
+            font-size: 1rem;
+          }
+
+          .register-form {
+            padding: 1rem;
+          }
+
+          .popup {
+            padding: 1rem;
+          }
+        }
+        /* Footer */
+.footer {
+  background: var(--capaciti-navy);
+  color: white;
+  padding: 4rem 0 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  max-width: 20rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.footer-logo span {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social .social-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.footer-social .social-link:hover {
+  background: var(--capaciti-purple);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.footer-column h4 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: var(--capaciti-salmon);
+}
+
+.footer-newsletter h4 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-newsletter p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.875rem;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--capaciti-purple);
+}
+
+.newsletter-btn {
+  padding: 0.75rem;
+  background: linear-gradient(135deg, var(--capaciti-salmon) 0%, var(--capaciti-purple) 100%);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+    </style>
+</head>
+<body>
+     <!-- Header -->
+    <header id="header" class="header">
+        <nav class="nav container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo" class="logo-img">
+                    <span class="logo-text">CAPACITI</span>
+                </a>
+
+ 
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="programmes.html" class="nav-link">Programmes</a>
+                    <a href="impact.html" class="nav-link">Impact</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="news.html" class="nav-link active">News & Events</a>
+                    <a href="opportunities.html" class="nav-link">Opportunities</a>
+                      <a href="contact.html" class="btn btn-primary">Work With Us</a>
+                </div>
+ 
+                
+ 
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="close-icon hidden"></i>
+                </button>
+            </div>
+ 
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-content">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                    <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+                    <a href="impact.html" class="mobile-nav-link">Impact</a>
+                    <a href="blog.html" class="mobile-nav-link">Blog</a>
+                    <a href="news.html" class="mobile-nav-link">News & Events</a>
+                    <a href="opportunities.html" class="mobile-nav-link">Opportunities</a>
+                  <a href="contact.html" class="btn btn-primary mobile-cta">Work With Us</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+ 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>News & Events</h1>
+            <p>Stay connected with CAPACITI's latest happenings, industry events, and exciting opportunities that shape Africa's tech landscape.</p>
+        </div>
+    </section>
+ 
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-badge">Stay Updated</span>
+                <h2 class="section-title">Latest Events & News</h2>
+                <p class="section-description">
+                    Discover our tech events, industry partnerships, and community initiatives that drive innovation across Africa.
+                </p>
+            </div>
+
+            <!-- Event Categories -->
+            <div class="event-categories">
+                <button class="category-btn active" data-category="all">All Events</button>
+                <button class="category-btn" data-category="tech-expo">Tech Expo</button>
+                <button class="category-btn" data-category="partnership">Partnerships</button>
+                <button class="category-btn" data-category="blockchain">Blockchain</button>
+                <button class="category-btn" data-category="upcoming">Upcoming</button>
+            </div>
+
+            <!-- Past Events Section -->
+            <div class="section-block">
+                <h3 class="section-block-title">Past Events</h3>
+                <div class="events-grid" id="pastEvents">
+                    <!-- CAPACITI Tech Expo Event -->
+                    <article class="event-card" data-category="tech-expo">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="CAPACITI Tech Expo">
+                            <div class="event-status past">Past Event</div>
+                            <div class="event-date-badge">March 15, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Tech Expo</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    9:00 AM - 6:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    Cape Town Convention Centre
+                                </span>
+                            </div>
+                            <h3 class="event-title">CAPACITI Tech Expo 2025: Shaping Africa's Digital Future</h3>
+                            <p class="event-description">
+                                Our flagship annual tech expo brought together over 2,000 tech enthusiasts, industry leaders, and innovators. The event featured keynote speeches, product demonstrations, startup pitches, and networking opportunities that showcased the latest trends in African technology.
+                            </p>
+                            <button class="event-action disabled">
+                                <i data-lucide="calendar-x" class="meta-icon"></i>
+                                Event Concluded
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- ninetyOne Partnership Event -->
+                    <article class="event-card" data-category="partnership">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="CAPACITI x ninetyOne Partnership">
+                            <div class="event-status past">Past Event</div>
+                            <div class="event-date-badge">February 28, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Partnership</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    2:00 PM - 5:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    ninetyOne Headquarters, Johannesburg
+                                </span>
+                            </div>
+                            <h3 class="event-title">Strategic Partnership Launch with ninetyOne</h3>
+                            <p class="event-description">
+                                CAPACITI announced a groundbreaking partnership with ninetyOne, Africa's leading investment management company. This collaboration focuses on fintech education, creating specialized training programs for financial technology professionals and establishing direct career pathways into the financial services sector.
+                            </p>
+                            <button class="event-action disabled">
+                                <i data-lucide="calendar-x" class="meta-icon"></i>
+                                Event Concluded
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Blockchain Summit -->
+                    <article class="event-card" data-category="blockchain">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Africa Blockchain Summit">
+                            <div class="event-status past">Past Event</div>
+                            <div class="event-date-badge">January 20, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Blockchain</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    8:30 AM - 7:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    Lagos Continental Hotel, Nigeria
+                                </span>
+                            </div>
+                            <h3 class="event-title">Africa Blockchain Summit: Decentralizing the Future</h3>
+                            <p class="event-description">
+                                CAPACITI hosted the premier blockchain conference in Africa, bringing together blockchain developers, cryptocurrency experts, and Web3 innovators. The summit featured workshops on smart contract development, DeFi applications, and the future of digital currencies in Africa's economy.
+                            </p>
+                            <button class="event-action disabled">
+                                <i data-lucide="calendar-x" class="meta-icon"></i>
+                                Event Concluded
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Additional Past Event - AI Workshop -->
+                    <article class="event-card" data-category="tech-expo">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Workshop">
+                            <div class="event-status past">Past Event</div>
+                            <div class="event-date-badge">December 10, 2024</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Tech Workshop</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    10:00 AM - 4:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    CAPACITI Campus, Nairobi
+                                </span>
+                            </div>
+                            <h3 class="event-title">AI for Africa: Machine Learning Workshop Series</h3>
+                            <p class="event-description">
+                                An intensive hands-on workshop series focused on artificial intelligence and machine learning applications for African markets. Participants learned to build AI models, understand neural networks, and develop solutions for local challenges using cutting-edge technology.
+                            </p>
+                            <button class="event-action disabled">
+                                <i data-lucide="calendar-x" class="meta-icon"></i>
+                                Event Concluded
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            
+
+            <!-- Upcoming Events Section -->
+            <div class="section-block">
+                <h3 class="section-block-title">Upcoming Events</h3>
+                <div class="events-grid" id="upcomingEvents">
+                    <!-- Future Tech Leaders Summit -->
+                    <article class="event-card" data-category="upcoming">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Future Tech Leaders Summit">
+                            <div class="event-status upcoming">Upcoming</div>
+                            <div class="event-date-badge">July 15, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Leadership Summit</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    9:00 AM - 5:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    Sandton Convention Centre, Johannesburg
+                                </span>
+                            </div>
+                            <h3 class="event-title">Future Tech Leaders Summit 2025</h3>
+                            <p class="event-description">
+                                Join Africa's most influential tech leaders, entrepreneurs, and innovators for a day of inspiring talks, panel discussions, and networking. This summit will explore the future of technology in Africa and how we can build sustainable tech ecosystems across the continent.
+                            </p>
+                            <button class="event-action register-btn" data-event="Future Tech Leaders Summit 2025">
+                                <i data-lucide="calendar-plus" class="meta-icon"></i>
+                                Register Now
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cybersecurity Workshop -->
+                    <article class="event-card" data-category="upcoming">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cybersecurity Workshop">
+                            <div class="event-status upcoming">Upcoming</div>
+                            <div class="event-date-badge">August 3, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Cybersecurity</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    1:00 PM - 6:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    CAPACITI Campus, Accra
+                                </span>
+                            </div>
+                            <h3 class="event-title">Cybersecurity Bootcamp: Protecting Africa's Digital Infrastructure</h3>
+                            <p class="event-description">
+                                An intensive hands-on workshop covering ethical hacking, penetration testing, and cybersecurity best practices. Learn from industry experts and gain practical skills to protect organizations from cyber threats in an increasingly connected world.
+                            </p>
+                            <button class="event-action register-btn" data-event="Cybersecurity Bootcamp">
+                                <i data-lucide="calendar-plus" class="meta-icon"></i>
+                                Register Now
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Women in Tech Conference -->
+                    <article class="event-card" data-category="upcoming">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Women in Tech Conference">
+                            <div class="event-status upcoming">Upcoming</div>
+                            <div class="event-date-badge">August 20, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Diversity & Inclusion</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    8:30 AM - 4:30 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    Kigali Convention Centre, Rwanda
+                                </span>
+                            </div>
+                            <h3 class="event-title">Women in Tech Africa: Breaking Barriers, Building Futures</h3>
+                            <p class="event-description">
+                                Celebrating and empowering women in technology across Africa. This conference features inspiring keynotes, mentorship sessions, and networking opportunities designed to support women's advancement in tech careers and entrepreneurship.
+                            </p>
+                            <button class="event-action register-btn" data-event="Women in Tech Africa">
+                                <i data-lucide="calendar-plus" class="meta-icon"></i>
+                                Register Now
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Startup Pitch Competition -->
+                    <article class="event-card" data-category="upcoming">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Startup Pitch Competition">
+                            <div class="event-status upcoming">Upcoming</div>
+                            <div class="event-date-badge">September 10, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Entrepreneurship</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    6:00 PM - 9:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    iHub, Nairobi
+                                </span>
+                            </div>
+                            <h3 class="event-title">CAPACITI Startup Pitch Night: Innovation Showcase</h3>
+                            <p class="event-description">
+                                Watch our alumni and current students pitch their innovative tech startups to a panel of investors and industry experts. This exciting evening celebrates entrepreneurship and provides funding opportunities for the next generation of African tech companies.
+                            </p>
+                            <button class="event-action register-btn" data-event="CAPACITI Startup Pitch Night">
+                                <i data-lucide="calendar-plus" class="meta-icon"></i>
+                                Register Now
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Digital Marketing Masterclass -->
+                    <article class="event-card" data-category="upcoming">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Digital Marketing Masterclass">
+                            <div class="event-status upcoming">Upcoming</div>
+                            <div class="event-date-badge">September 25, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Digital Marketing</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    10:00 AM - 3:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    CAPACITI Campus, Cairo
+                                </span>
+                            </div>
+                            <h3 class="event-title">Digital Marketing Masterclass: Growth Strategies for African Businesses</h3>
+                            <p class="event-description">
+                                Learn cutting-edge digital marketing strategies tailored for African markets. This masterclass covers social media marketing, content creation, SEO, and data analytics to help businesses and professionals excel in the digital economy.
+                            </p>
+                            <button class="event-action register-btn" data-event="Digital Marketing Masterclass">
+                                <i data-lucide="calendar-plus" class="meta-icon"></i>
+                                Register Now
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Annual Graduation Ceremony -->
+                    <article class="event-card" data-category="upcoming">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Graduation Ceremony">
+                            <div class="event-status upcoming">Upcoming</div>
+                            <div class="event-date-badge">October 15, 2025</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <span class="event-category">Graduation</span>
+                                <span class="event-time">
+                                    <i data-lucide="clock" class="meta-icon"></i>
+                                    4:00 PM - 7:00 PM
+                                </span>
+                                <span class="event-location">
+                                    <i data-lucide="map-pin" class="meta-icon"></i>
+                                    Cape Town International Convention Centre
+                                </span>
+                            </div>
+                            <h3 class="event-title">CAPACITI Annual Graduation Ceremony 2025</h3>
+                            <p class="event-description">
+                                Join us in celebrating the achievements of our 2025 graduating cohorts as they complete their transformative journey in technology education. This special ceremony honors their hard work and marks the beginning of their exciting tech careers.
+                            </p>
+                            <button class="event-action register-btn" data-event="CAPACITI Annual Graduation Ceremony">
+                                <i data-lucide="calendar-plus" class="meta-icon"></i>
+                                RSVP Now
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Popup Overlay and Form -->
+            <div class="popup-overlay" id="popupOverlay"></div>
+            <div class="popup" id="registerPopup">
+                <form id="registrationForm" class="register-form">
+                    <h3>Register for <span id="eventName">Event</span></h3>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="Where do you stay?" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Registration</button>
+                    <button type="button" class="btn btn-primary" id="closeRegisterPopup" style="margin-top: 1rem;">Cancel</button>
+                </form>
+            </div>
+
+            <!-- Success Popup -->
+            <div class="popup" id="successPopup">
+                <h3>Registration Successful!</h3>
+                <p>Thank you for registering for our upcoming events. We'll send you a confirmation soon.</p>
+                <button class="btn btn-primary" id="closeSuccessPopup">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Event filtering and popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const eventCards = document.querySelectorAll('.event-card');
+            const registerButtons = document.querySelectorAll('.register-btn');
+            const registrationForm = document.getElementById('registrationForm');
+            const registerPopup = document.getElementById('registerPopup');
+            const successPopup = document.getElementById('successPopup');
+            const popupOverlay = document.getElementById('popupOverlay');
+            const closeRegisterPopupBtn = document.getElementById('closeRegisterPopup');
+            const closeSuccessPopupBtn = document.getElementById('closeSuccessPopup');
+            const eventNameSpan = document.getElementById('eventName');
+
+            // Show registration popup when clicking register button
+            registerButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const eventName = this.getAttribute('data-event');
+                    eventNameSpan.textContent = eventName;
+                    registerPopup.classList.add('active');
+                    popupOverlay.classList.add('active');
+                });
+            });
+
+            // Close registration popup
+            closeRegisterPopupBtn.addEventListener('click', function() {
+                registerPopup.classList.remove('active');
+                popupOverlay.classList.remove('active');
+                registrationForm.reset();
+            });
+
+            // Form submission handling
+            registrationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic form validation
+                const name = document.getElementById('name').value;
+                const surname = document.getElementById('surname').value;
+                const phone = document.getElementById('phone').value;
+                const location = document.getElementById('location').value;
+
+                if (name && surname && phone && location) {
+                    // Hide registration popup
+                    registerPopup.classList.remove('active');
+                    
+                    // Show success popup
+                    successPopup.classList.add('active');
+                    popupOverlay.classList.add('active');
+                    
+                    // Reset form
+                    registrationForm.reset();
+                }
+            });
+
+            // Close success popup
+            closeSuccessPopupBtn.addEventListener('click', function() {
+                successPopup.classList.remove('active');
+                popupOverlay.classList.remove('active');
+            });
+
+            // Close popups when clicking overlay
+            popupOverlay.addEventListener('click', function() {
+                registerPopup.classList.remove('active');
+                successPopup.classList.remove('active');
+                popupOverlay.classList.remove('active');
+                registrationForm.reset();
+            });
+
+            // Category filtering
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+                   
+                    // Filter events
+                    eventCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeInUp 0.6s ease-out';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe event cards for scroll animations
+            eventCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">CAPACITI</span>
+                    </div>
+                    <p class="footer-description">
+                        Accelerating tech careers and transforming lives through innovative training programs and career support.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin" class="social-icon"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter" class="social-icon"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram" class="social-icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Programs</h4>
+                        <ul class="footer-list">
+                            <li><a href="programmes.html" class="footer-link">Web Development</a></li>
+                            <li><a href="programmes.html" class="footer-link">Data Science</a></li>
+                            <li><a href="programmes.html" class="footer-link">Digital Marketing</a></li>
+                            <li><a href="programmes.html" class="footer-link">Software Engineering</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="about.html" class="footer-link">About Us</a></li>
+                            <li><a href="about.html#team" class="footer-link">Our Team</a></li>
+                            <li><a href="impact.html" class="footer-link">Impact</a></li>
+                            <li><a href="contact.html" class="footer-link">Contact</a></li>
+                            <li><a href="team.html" class="footer-link">Meet Our Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Resources</h4>
+                        <ul class="footer-list">
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="news.html" class="footer-link">News & Events</a></li>
+                            <li><a href="opportunities.html" class="footer-link">Opportunities</a></li>
+                            <li><a href="#partners" class="footer-link">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="newsletter-description">Stay updated with our latest programs and success stories.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button class="newsletter-btn">
+                            <i data-lucide="send" class="newsletter-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 CAPACITI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                    <a href="#" class="legal-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+</body>
+</html>

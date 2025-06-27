@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmes - CAPACITI</title>
+    <meta name="description" content="Explore CAPACITI's comprehensive tech training programs including Web Development, Data Science, Digital Marketing, and Software Engineering.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <nav class="nav container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo" class="logo-img">
+                    <span class="logo-text">CAPACITI</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="programmes.html" class="nav-link active">Programmes</a>
+                    <a href="impact.html" class="nav-link">Impact</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="news.html" class="nav-link">News & Events</a>
+                    <a href="opportunities.html" class="nav-link">Opportunities</a>
+                  <a href="contact.html" class="btn btn-primary">Work With Us</a>
+                </div>
+
+                
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="close-icon hidden"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-content">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                    <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+                    <a href="impact.html" class="mobile-nav-link">Impact</a>
+                    <a href="blog.html" class="mobile-nav-link">Blog</a>
+                    <a href="news.html" class="mobile-nav-link">News & Events</a>
+                    <a href="opportunities.html" class="mobile-nav-link">Opportunities</a>
+                    
+                    <a href="contact.html" class="btn btn-primary mobile-cta">Work With Us</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+        <!-- Programs Section -->
+        <section id="programs" class="programs">
+            <div class="container">
+                <!-- Header -->
+                <div class="section-header">
+                    <span class="section-badge">Our Programs</span>
+                    <h2 class="section-title">Comprehensive Tech Training That Works</h2>
+                    <p class="section-description">Our carefully designed programs combine technical skills, industry experience, and career support to ensure you're ready for success in the tech industry.</p>
+                </div>
+
+                <!-- Programs Grid -->
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-accent"></div>
+                        <div class="program-icon">
+                            <i data-lucide="code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Master frontend and backend development with modern frameworks like React, Node.js, and databases.</p>
+                        <ul class="program-features">
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>React & Node.js</li>
+                            <li>Database Management</li>
+                            <li>API Development</li>
+                        </ul>
+                        <div class="program-duration">12 Weeks</div>
+                        <button class="btn btn-primary program-apply" data-program="Web Development">Apply Now</button>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-accent"></div>
+                        <div class="program-icon">
+                            <i data-lucide="bar-chart-3"></i>
+                        </div>
+                        <h3>Data Science</h3>
+                        <p>Learn to extract insights from data using Python, machine learning, and visualization tools.</p>
+                        <ul class="program-features">
+                            <li>Python & R Programming</li>
+                            <li>Machine Learning</li>
+                            <li>Data Visualization</li>
+                            <li>Statistical Analysis</li>
+                        </ul>
+                        <div class="program-duration">16 Weeks</div>
+                        <button class="btn btn-primary program-apply" data-program="Data Science">Apply Now</button>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-accent"></div>
+                        <div class="program-icon">
+                            <i data-lucide="megaphone"></i>
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>Master digital marketing strategies, SEO, social media, and analytics for the modern marketplace.</p>
+                        <ul class="program-features">
+                            <li>SEO & SEM</li>
+                            <li>Social Media Marketing</li>
+                            <li>Analytics & Reporting</li>
+                            <li>Content Strategy</li>
+                        </ul>
+                        <div class="program-duration">10 Weeks</div>
+                        <button class="btn btn-primary program-apply" data-program="Digital Marketing">Apply Now</button>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-accent"></div>
+                        <div class="program-icon">
+                            <i data-lucide="terminal"></i>
+                        </div>
+                        <h3>Software Engineering</h3>
+                        <p>Build robust applications with modern programming languages and industry best practices.</p>
+                        <ul class="program-features">
+                            <li>Object-Oriented Programming</li>
+                            <li>Software Architecture</li>
+                            <li>Testing & Debugging</li>
+                            <li>Version Control</li>
+                        </ul>
+                        <div class="program-duration">20 Weeks</div>
+                        <button class="btn btn-primary program-apply" data-program="Software Engineering">Apply Now</button>
+                    </div>
+                </div>
+
+               
+            </div>
+        </section>
+            <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo">
+                        <span>CAPACITI</span>
+                    </div>
+                    <p>Accelerating tech careers and transforming lives through innovative training programs and career support.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Programs</h4>
+                        <ul>
+                            <li><a href="programmes.html">Web Development</a></li>
+                            <li><a href="programmes.html">Data Science</a></li>
+                            <li><a href="programmes.html">Digital Marketing</a></li>
+                            <li><a href="programmes.html">Software Engineering</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#team">Our Team</a></li>
+                            <li><a href="impact.html">Impact</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="team.html">Meet Our Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="news.html">News & Events</a></li>
+                            <li><a href="opportunities.html">Opportunities</a></li>
+                            <li><a href="#partners">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with our latest programs and success stories.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button class="newsletter-btn">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 CAPACITI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <div class="modal-title-section">
+                    <h2 id="modalTitle">Apply to CAPACITI Program</h2>
+                    <p>Join our ecosystem and transform your career</p>
+                </div>
+                <button id="modalClose" class="modal-close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <!-- Content -->
+            <div class="modal-body">
+                <!-- Application Form -->
+                <form id="applicationForm" class="application-form">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name *</label>
+                                <input type="text" name="firstName" required placeholder="Enter your first name">
+                            </div>
+                            <div class="form-group">
+                                <label>Surname *</label>
+                                <input type="text" name="surname" required placeholder="Enter your surname">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-section">
+                        <h3>Contact Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" required placeholder="+27 XX XXX XXXX">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Program Selection -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label>Program of Interest *</label>
+                            <select name="program" required>
+                                <option value="">Select a program</option>
+                                <option value="Web Development">Web Development (12 weeks)</option>
+                                <option value="Data Science">Data Science (16 weeks)</option>
+                                <option value="Digital Marketing">Digital Marketing (10 weeks)</option>
+                                <option value="Software Engineering">Software Engineering (20 weeks)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Experience Level -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label>Technical Experience Level *</label>
+                            <select name="experience" required>
+                                <option value="">Select your experience level</option>
+                                <option value="beginner">Complete Beginner</option>
+                                <option value="some-knowledge">Some Basic Knowledge</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Availability -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label>Availability *</label>
+                            <select name="availability" required>
+                                <option value="">Select your availability</option>
+                                <option value="full-time">Full-time (40+ hours/week)</option>
+                                <option value="part-time">Part-time (20-30 hours/week)</option>
+                                <option value="evenings">Evenings & Weekends</option>
+                                <option value="flexible">Flexible Schedule</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Motivation -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label>Why do you want to join CAPACITI? *</label>
+                            <textarea name="motivation" required rows="4" placeholder="Tell us about your goals and what you hope to achieve through this program..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- CV Upload -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label>Upload CV (Optional)</label>
+                            <div class="file-upload">
+                                <i data-lucide="upload"></i>
+                                <p>Drag and drop your CV here, or <button type="button" class="file-browse">browse files</button></p>
+                                <small>PDF, DOC, DOCX up to 5MB</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="form-section">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">
+                                I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>. 
+                                I consent to CAPACITI contacting me about this application and future opportunities.
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="form-actions">
+                        <button type="button" id="formCancel" class="btn btn-outline">Cancel</button>
+                        <button type="submit" id="formSubmit" class="btn btn-primary">
+                            <span class="submit-text">Submit Application</span>
+                            <span class="submit-loading hidden">
+                                <div class="loading-spinner"></div>
+                                Submitting...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success State -->
+                <div id="modalSuccess" class="success-state hidden">
+                    <div class="success-icon">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <h3>Application Submitted!</h3>
+                    <p>Thank you for your interest in our program. We'll review your application and get back to you within 5-7 business days.</p>
+                    <small>This window will close automatically...</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase JavaScript Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Supabase Configuration -->
+    <script src="supabase-config.js"></script>
+    
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/supabase-form-handler.js"></script>
+</body>
+</html>
+
+
+
+
