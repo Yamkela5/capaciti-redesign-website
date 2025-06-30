@@ -1,5 +1,4 @@
-// Blog page specific functionality
-   
+
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileNav = document.querySelector('.mobile-nav');
@@ -40,4 +39,3 @@
                 });
             }
         });
-    
