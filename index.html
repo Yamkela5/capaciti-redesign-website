@@ -12,6 +12,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="/styles/blog.css">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -550,6 +551,283 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- blog section -->
+
+   <section class="hero-section">
+        <!-- Animated Background Elements -->
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="floating-shapes">
+            <div class="shape shape-circle"></div>
+            <div class="shape shape-triangle"></div>
+            <div class="shape shape-square"></div>
+            <div class="shape shape-hexagon"></div>
+        </div>
+        
+        <div class="hero-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>our blog</h1>
+            <p>Stay updated with the latest trends in technology, career development, and industry insights from CAPACITI's expert team.</p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="news-section-title">Featured blogs</h2>
+            
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <div class="news-date-badge">Dec 15, 2024</div>
+                        <div class="news-category-overlay">
+                            <span class="news-category-text">Technology</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Technology</span>
+                            <span class="news-time">
+                                <i class="far fa-clock meta-icon"></i>
+                                2 hours ago
+                            </span>
+                            <span class="news-read-time">
+                                <i class="far fa-eye meta-icon"></i>
+                                5 min read
+                            </span>
+                        </div>
+                        
+                        <h3 class="news-title">The Future of Web Development: Trends to Watch in 2025</h3>
+                        
+                        <p class="news-excerpt">
+                            Discover the emerging technologies and frameworks that will shape web development in the coming year. From AI integration to new JavaScript frameworks...
+                        </p>
+                        
+                        <button class="news-read-more" onclick="openModal('modal1')">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- News Card 2 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <div class="news-date-badge">Dec 12, 2024</div>
+                        <div class="news-category-overlay">
+                            <span class="news-category-text">Career</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Career Development</span>
+                            <span class="news-time">
+                                <i class="far fa-clock meta-icon"></i>
+                                1 day ago
+                            </span>
+                            <span class="news-read-time">
+                                <i class="far fa-eye meta-icon"></i>
+                                7 min read
+                            </span>
+                        </div>
+                        
+                        <h3 class="news-title">Building a Successful Tech Career: Essential Skills for 2025</h3>
+                        
+                        <p class="news-excerpt">
+                            Learn about the most in-demand skills and strategies for advancing your technology career. Our industry experts share insights on what employers are looking for...
+                        </p>
+                        
+                        <button class="news-read-more" onclick="openModal('modal2')">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- News Card 3 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <div class="news-date-badge">Dec 10, 2024</div>
+                        <div class="news-category-overlay">
+                            <span class="news-category-text">Data Science</span>
+                        </div>
+                    </div>
+                    
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Data Science</span>
+                            <span class="news-time">
+                                <i class="far fa-clock meta-icon"></i>
+                                3 days ago
+                            </span>
+                            <span class="news-read-time">
+                                <i class="far fa-eye meta-icon"></i>
+                                8 min read
+                            </span>
+                        </div>
+                        
+                        <h3 class="news-title">Machine Learning in Practice: Real-World Applications</h3>
+                        
+                        <p class="news-excerpt">
+                            Explore how machine learning is transforming industries and creating new opportunities. From healthcare to finance, see ML in action...
+                        </p>
+                        
+                        <button class="news-read-more" onclick="openModal('modal3')">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal1')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title">The Future of Web Development: Trends to Watch in 2025</h2>
+                <div class="modal-meta">
+                    <span>Technology • Dec 15, 2024 • 5 min read</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Web Development" class="modal-image">
+                
+                <div class="modal-content">
+                    <p>The web development landscape is constantly evolving, and 2025 promises to bring exciting new technologies and methodologies that will reshape how we build and interact with web applications.</p>
+                    
+                    <h3>AI-Powered Development Tools</h3>
+                    <p>Artificial Intelligence is revolutionizing the development process. From code generation to automated testing, AI tools are becoming indispensable for modern developers. GitHub Copilot and similar tools are just the beginning of this transformation.</p>
+                    
+                    <h3>WebAssembly Goes Mainstream</h3>
+                    <p>WebAssembly (WASM) is gaining significant traction, allowing developers to run high-performance applications in the browser. This technology enables languages like Rust, C++, and Go to run efficiently in web environments.</p>
+                    
+                    <h3>Progressive Web Apps Evolution</h3>
+                    <p>PWAs continue to bridge the gap between web and native applications. With improved capabilities and better browser support, PWAs are becoming the preferred choice for many businesses looking to provide app-like experiences.</p>
+                    
+                    <h3>Serverless Architecture Adoption</h3>
+                    <p>Serverless computing is transforming how we deploy and scale web applications. With platforms like Vercel, Netlify, and AWS Lambda, developers can focus on code rather than infrastructure management.</p>
+                </div>
+                
+                <div class="modal-tags">
+                    <span class="modal-tag">Web Development</span>
+                    <span class="modal-tag">Technology Trends</span>
+                    <span class="modal-tag">AI</span>
+                    <span class="modal-tag">WebAssembly</span>
+                    <span class="modal-tag">PWA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal2')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title">Building a Successful Tech Career: Essential Skills for 2025</h2>
+                <div class="modal-meta">
+                    <span>Career Development • Dec 12, 2024 • 7 min read</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Career Development" class="modal-image">
+                
+                <div class="modal-content">
+                    <p>The technology industry continues to evolve rapidly, creating new opportunities while making some skills obsolete. Here's what you need to know to build a successful tech career in 2025.</p>
+                    
+                    <h3>Technical Skills in High Demand</h3>
+                    <p>Cloud computing, artificial intelligence, and cybersecurity remain the top technical skills employers are seeking. Proficiency in cloud platforms like AWS, Azure, or Google Cloud is becoming essential across all tech roles.</p>
+                    
+                    <h3>Soft Skills Matter More Than Ever</h3>
+                    <p>While technical skills get you in the door, soft skills determine your career trajectory. Communication, leadership, and adaptability are crucial for senior roles and cross-functional collaboration.</p>
+                    
+                    <h3>Continuous Learning is Key</h3>
+                    <p>The half-life of technical skills is shrinking. Successful tech professionals invest in continuous learning through online courses, certifications, and hands-on projects. Platforms like CAPACITI provide structured learning paths for career advancement.</p>
+                    
+                    <h3>Building Your Professional Network</h3>
+                    <p>Networking remains one of the most effective ways to advance your career. Attend industry events, contribute to open source projects, and engage with the tech community on platforms like LinkedIn and GitHub.</p>
+                </div>
+                
+                <div class="modal-tags">
+                    <span class="modal-tag">Career Development</span>
+                    <span class="modal-tag">Skills</span>
+                    <span class="modal-tag">Professional Growth</span>
+                    <span class="modal-tag">Networking</span>
+                    <span class="modal-tag">Learning</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal3')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title">Machine Learning in Practice: Real-World Applications</h2>
+                <div class="modal-meta">
+                    <span>Data Science • Dec 10, 2024 • 8 min read</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Machine Learning" class="modal-image">
+                
+                <div class="modal-content">
+                    <p>Machine learning has moved beyond academic research to become a driving force in modern business operations. Let's explore how ML is being applied across various industries to solve real-world problems.</p>
+                    
+                    <h3>Healthcare Revolution</h3>
+                    <p>ML algorithms are transforming healthcare through diagnostic imaging, drug discovery, and personalized treatment plans. AI-powered systems can now detect diseases earlier and more accurately than traditional methods.</p>
+                    
+                    <h3>Financial Services Innovation</h3>
+                    <p>From fraud detection to algorithmic trading, machine learning is reshaping the financial industry. Banks use ML for credit scoring, risk assessment, and customer service automation through chatbots.</p>
+                    
+                    <h3>Retail and E-commerce</h3>
+                    <p>Recommendation systems, inventory management, and dynamic pricing are just a few ways ML is optimizing retail operations. Companies like Amazon and Netflix have built their competitive advantage on sophisticated ML algorithms.</p>
+                    
+                    <h3>Transportation and Logistics</h3>
+                    <p>Autonomous vehicles, route optimization, and predictive maintenance are transforming how we move people and goods. ML algorithms process vast amounts of sensor data to make split-second decisions.</p>
+                    
+                    <h3>Getting Started with ML</h3>
+                    <p>If you're interested in machine learning, start with Python and libraries like scikit-learn, TensorFlow, or PyTorch. Focus on understanding the fundamentals before diving into complex algorithms.</p>
+                </div>
+                
+                <div class="modal-tags">
+                    <span class="modal-tag">Machine Learning</span>
+                    <span class="modal-tag">Data Science</span>
+                    <span class="modal-tag">AI Applications</span>
+                    <span class="modal-tag">Healthcare</span>
+                    <span class="modal-tag">Finance</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
         <!-- News & Events Section -->
         <section id="news" class="news">
@@ -1181,5 +1459,6 @@
 
     <!-- JavaScript -->
     <script src="scripts/main.js"></script>
+    <script src="/scripts/blog.js"></script>
 </body>
 </html>
