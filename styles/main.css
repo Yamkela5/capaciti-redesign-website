@@ -1271,6 +1271,7 @@ section {
 .news-read-more {
   display: inline-flex;
   align-items: center;
+  text-align: center;
   color: var(--capaciti-purple);
   font-weight: 600;
   font-size: 0.875rem;
