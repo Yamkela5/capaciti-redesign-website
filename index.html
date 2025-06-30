@@ -9,13 +9,15 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png">
-    
     <!-- CSS -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="/styles/blog.css">
-    <link rel="stylesheet" href="/styles/bot.css">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -28,7 +30,6 @@
                     <span class="logo-text">CAPACITI</span>
                 </a>
 
-
                 <!-- Desktop Navigation -->
                 <div class="nav-links">
                     <a href="index.html" class="nav-link active">Home</a>
@@ -38,22 +39,19 @@
                     <a href="blog.html" class="nav-link">Blog</a>
                     <a href="news.html" class="nav-link">News & Events</a>
                     <a href="opportunities.html" class="nav-link">Opportunities</a>
-                    <a href="contact.html" class="btn btn-primary">Work With Us</a>
-                
-                   
-
+                     <a href="contact.html" class="btn btn-primary">Work With Us</a>
+                  
                 </div>
 
-            
                 <!-- Mobile menu button -->
-                <button id="mobileMenuBtn" class="mobile-menu-btn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i data-lucide="menu" class="menu-icon"></i>
                     <i data-lucide="x" class="close-icon hidden"></i>
                 </button>
             </div>
 
             <!-- Mobile Navigation -->
-            <div id="mobileNav" class="mobile-nav">
+            <div class="mobile-nav" id="mobileNav">
                 <div class="mobile-nav-content">
                     <a href="index.html" class="mobile-nav-link">Home</a>
                     <a href="about.html" class="mobile-nav-link">About</a>
@@ -62,8 +60,9 @@
                     <a href="blog.html" class="mobile-nav-link">Blog</a>
                     <a href="news.html" class="mobile-nav-link">News & Events</a>
                     <a href="opportunities.html" class="mobile-nav-link">Opportunities</a>
+                     <a href="team.html" class="nav-link">Opportunities</a>
                     <a href="contact.html" class="mobile-nav-link">Contact</a>
-                    
+                   
                 </div>
             </div>
         </nav>
@@ -871,10 +870,10 @@
                             </div>
                             <h3>Calling African creative entrepreneurs to apply for creative-tech incubation programme</h3>
                             <p>CAPACITI is launching a new creative-tech incubation programme designed to support African entrepreneurs in building innovative technology solutions that address local challenges.</p>
-                            <button class="news-read-more">
+                            <!-- <button class="news-read-more">
                                 READ MORE
                                 <span>→</span>
-                            </button>
+                            </button> -->
                         </div>
                     </article>
 
@@ -899,10 +898,10 @@
                             </div>
                             <h3>CAPACITI Named One of Africa's Fastest Growing Tech Education Companies</h3>
                             <p>Our commitment to transforming lives through technology education continues as CAPACITI celebrates 5 years of impact and recognition as a leading tech career accelerator.</p>
-                            <button class="news-read-more">
+                            <!-- <button class="news-read-more">
                                 READ MORE
                                 <span>→</span>
-                            </button>
+                            </button> -->
                         </div>
                     </article>
 
@@ -927,12 +926,18 @@
                             </div>
                             <h3>CAPACITI's Tech Talent is the Key to Africa's E-Commerce Success</h3>
                             <p>Exploring how our graduates are driving the growth of Africa's e-commerce sector through innovative solutions and technical expertise in web development and digital marketing.</p>
-                            <button class="news-read-more">
+                            <!-- <button class="news-read-more">
                                 READ MORE
                                 <span>→</span>
-                            </button>
+                            </button> -->
                         </div>
                     </article>
+                    <div class="news-read-more-wrapper">
+                    <button class="news-read-more" onclick="window.location.href='news.html'">
+                        READ MORE
+                        <span>→</span>
+                    </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1190,13 +1195,13 @@
                     </div>
                     <p>Accelerating tech careers and transforming lives through innovative training programs and career support.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link">
+                        <a href="https://www.linkedin.com/company/capacitiza/posts/?feedView=all" class="social-link">
                             <i data-lucide="linkedin"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://x.com/CapaCiTiZA" class="social-link">
                             <i data-lucide="twitter"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://www.instagram.com/capacitiza/" class="social-link">
                             <i data-lucide="instagram"></i>
                         </a>
                     </div>

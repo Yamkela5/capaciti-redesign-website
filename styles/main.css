@@ -1268,16 +1268,27 @@ section {
   font-size: 0.875rem;
 }
 
+.news-read-more-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 395px;
+}
+
 .news-read-more {
   display: inline-flex;
-  align-items: center;
-  color: var(--capaciti-purple);
+  text-align: center;
   font-weight: 600;
-  font-size: 0.875rem;
-  background: none;
+  font-size: 0.75rem;
   border: none;
   cursor: pointer;
   transition: color 0.3s ease;
+  background: linear-gradient(135deg, var(--capaciti-salmon) 0%, var(--capaciti-purple) 100%);
+  color: white;
+  padding: 0.425rem 0.7rem;
+  border-radius: 2rem;
 }
 
 .news-read-more:hover {
