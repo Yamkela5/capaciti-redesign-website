@@ -6,7 +6,7 @@
     <title>News & Events - CAPACITI</title>
     <meta name="description" content="Stay updated with CAPACITI's latest news, events, and industry insights. Discover our tech events, partnerships, and upcoming opportunities.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    
+    <link rel="stylesheet" href="/styles/bot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -439,7 +439,142 @@
         </div>
     </main>
 
-    <script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">CAPACITI</span>
+                    </div>
+                    <p class="footer-description">
+                        Accelerating tech careers and transforming lives through innovative training programs and career support.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin" class="social-icon"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter" class="social-icon"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram" class="social-icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Programs</h4>
+                        <ul class="footer-list">
+                            <li><a href="programmes.html" class="footer-link">Web Development</a></li>
+                            <li><a href="programmes.html" class="footer-link">Data Science</a></li>
+                            <li><a href="programmes.html" class="footer-link">Digital Marketing</a></li>
+                            <li><a href="programmes.html" class="footer-link">Software Engineering</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="about.html" class="footer-link">About Us</a></li>
+                            <li><a href="about.html#team" class="footer-link">Our Team</a></li>
+                            <li><a href="impact.html" class="footer-link">Impact</a></li>
+                            <li><a href="contact.html" class="footer-link">Contact</a></li>
+                            <li><a href="team.html" class="footer-link">Meet Our Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Resources</h4>
+                        <ul class="footer-list">
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="news.html" class="footer-link">News & Events</a></li>
+                            <li><a href="opportunities.html" class="footer-link">Opportunities</a></li>
+                            <li><a href="#partners" class="footer-link">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="newsletter-description">Stay updated with our latest programs and success stories.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button class="newsletter-btn">
+                            <i data-lucide="send" class="newsletter-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 CAPACITI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                    <a href="#" class="legal-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+         <div id="chatbot" class="chatbot">
+        <!-- Chat Container -->
+        <div id="chatContainer" class="chat-container">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="chat-info">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant" class="chat-avatar">
+                    <span>CAPACITI Assistant</span>
+                </div>
+                <button id="chatClose" class="chat-close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <!-- Messages -->
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="Bot" class="message-avatar">
+                    <div class="message-content">
+                        Hi! I'm the CAPACITI Assistant. I can help you learn about our tech career acceleration programs, team, and how we're transforming lives through technology education. What would you like to know?
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Input -->
+            <div class="chat-input">
+                <input type="text" id="chatInputField" placeholder="Ask me anything about CAPACITI..." maxlength="500">
+                <button id="chatSend">
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <button id="chatToggle" class="chat-toggle">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant">
+        </button>
+
+        <!-- Notification Badge -->
+        <div id="chatNotification" class="chat-notification">1</div>
+    </div>
+
+
+
+
+       <script>
         // Event filtering and popup functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Elements
@@ -553,146 +688,11 @@
                 observer.observe(card);
             });
         });
-    </script>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Brand -->
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo" class="footer-logo-img">
-                        <span class="footer-logo-text">CAPACITI</span>
-                    </div>
-                    <p class="footer-description">
-                        Accelerating tech careers and transforming lives through innovative training programs and career support.
-                    </p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link">
-                            <i data-lucide="linkedin" class="social-icon"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="twitter" class="social-icon"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="instagram" class="social-icon"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Links -->
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4 class="footer-title">Programs</h4>
-                        <ul class="footer-list">
-                            <li><a href="programmes.html" class="footer-link">Web Development</a></li>
-                            <li><a href="programmes.html" class="footer-link">Data Science</a></li>
-                            <li><a href="programmes.html" class="footer-link">Digital Marketing</a></li>
-                            <li><a href="programmes.html" class="footer-link">Software Engineering</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4 class="footer-title">Company</h4>
-                        <ul class="footer-list">
-                            <li><a href="about.html" class="footer-link">About Us</a></li>
-                            <li><a href="about.html#team" class="footer-link">Our Team</a></li>
-                            <li><a href="impact.html" class="footer-link">Impact</a></li>
-                            <li><a href="contact.html" class="footer-link">Contact</a></li>
-                            <li><a href="team.html" class="footer-link">Meet Our Team</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4 class="footer-title">Resources</h4>
-                        <ul class="footer-list">
-                            <li><a href="blog.html" class="footer-link">Blog</a></li>
-                            <li><a href="news.html" class="footer-link">News & Events</a></li>
-                            <li><a href="opportunities.html" class="footer-link">Opportunities</a></li>
-                            <li><a href="#partners" class="footer-link">Partners</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Newsletter -->
-                <div class="footer-newsletter">
-                    <h4 class="footer-title">Newsletter</h4>
-                    <p class="newsletter-description">Stay updated with our latest programs and success stories.</p>
-                    <div class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button class="newsletter-btn">
-                            <i data-lucide="send" class="newsletter-icon"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom -->
-            <div class="footer-bottom">
-                <p class="footer-copyright">© 2025 CAPACITI. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#" class="legal-link">Privacy Policy</a>
-                    <a href="#" class="legal-link">Terms of Service</a>
-                    <a href="#" class="legal-link">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
-
-
-        <div id="chatbot" class="chatbot">
-        <!-- Chat Container -->
-        <div id="chatContainer" class="chat-container">
-            <!-- Header -->
-            <div class="chat-header">
-                <div class="chat-info">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant" class="chat-avatar">
-                    <span>CAPACITI Assistant</span>
-                </div>
-                <button id="chatClose" class="chat-close">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-
-            <!-- Messages -->
-            <div id="chatMessages" class="chat-messages">
-                <div class="message bot-message">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="Bot" class="message-avatar">
-                    <div class="message-content">
-                        Hi! I'm the CAPACITI Assistant. I can help you learn about our tech career acceleration programs, team, and how we're transforming lives through technology education. What would you like to know?
-                    </div>
-                </div>
-
-                <!-- Suggestions -->
-                <div id="chatSuggestions" class="chat-suggestions">
-                    <button class="suggestion-btn" data-suggestion="What is CAPACITI?">What is CAPACITI?</button>
-                    <button class="suggestion-btn" data-suggestion="Our Programs">Our Programs</button>
-                    <button class="suggestion-btn" data-suggestion="How to Apply">How to Apply</button>
-                </div>
-            </div>
-
-            <!-- Input -->
-            <div class="chat-input">
-                <input type="text" id="chatInputField" placeholder="Ask me anything about CAPACITI..." maxlength="500">
-                <button id="chatSend">
-                    <i data-lucide="send"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Toggle Button -->
-        <button id="chatToggle" class="chat-toggle">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant">
-        </button>
-
-        <!-- Notification Badge -->
-        <div id="chatNotification" class="chat-notification">1</div>
-    </div>
-
-    
+ </script> 
      <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script src="/scripts/main.js"></script>
+<script src="/scripts/bot.js"></script>
 </body>
 </html>
