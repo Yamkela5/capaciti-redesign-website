@@ -76,6 +76,25 @@
   line-height: 1;
 }
 
+.section-badge {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--capaciti-purple) 0%, var(--capaciti-salmon) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-badge.light {
+  color: var(--capaciti-pink);
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
 .impact-stat .stat-label {
   font-size: 0.875rem;
   font-weight: 600;

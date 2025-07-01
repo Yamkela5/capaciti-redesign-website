@@ -1,393 +1,252 @@
-// Supabase Configuration
-// Configuration is loaded from supabase-config.js
-let SUPABASE_URL = '';
-let SUPABASE_ANON_KEY = '';
+// Ensure Supabase is initialized
+const supabase = window.SUPABASE_CONFIG
+  ? window.supabase.createClient(window.SUPABASE_CONFIG.url, window.SUPABASE_CONFIG.key)
+  : null;
 
-// Initialize Supabase client
-let supabase = null;
+document.addEventListener("DOMContentLoaded", () => {
+  const applyButtons = document.querySelectorAll(".program-apply");
+  const modal = document.getElementById("applicationModal");
+  const form = document.getElementById("applicationForm");
+  const closeBtn = document.getElementById("modalClose");
+  const cancelBtn = document.getElementById("formCancel");
+  const successState = document.getElementById("modalSuccess");
 
-// Initialize Supabase when the script loads
-function initializeSupabase() {
-    // Get configuration from global config
-    if (window.SUPABASE_CONFIG) {
-        SUPABASE_URL = window.SUPABASE_CONFIG.url;
-        SUPABASE_ANON_KEY = window.SUPABASE_CONFIG.anonKey;
-    }
-    
-    // Check if credentials are configured
-    if (!SUPABASE_URL || !SUPABASE_ANON_KEY || 
-        SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL' || 
-        SUPABASE_ANON_KEY === 'YOUR_SUPABASE_ANON_KEY') {
-        console.warn('Supabase credentials not configured. Please update supabase-config.js with your project credentials.');
-        return;
-    }
-    
-    if (typeof window.supabase !== 'undefined') {
-        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        console.log('Supabase client initialized successfully');
-    } else {
-        console.error('Supabase library not loaded. Please check the CDN link.');
-    }
-}
-
-// Form validation functions
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function validatePhone(phone) {
-    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
-    return phoneRegex.test(phone.replace(/\s/g, ''));
-}
-
-function validateFormData(formData) {
-    const errors = [];
-    
-    // Required fields validation
-    const requiredFields = [
-        { field: 'firstName', name: 'First Name' },
-        { field: 'surname', name: 'Surname' },
-        { field: 'email', name: 'Email' },
-        { field: 'phone', name: 'Phone' },
-        { field: 'program', name: 'Program' },
-        { field: 'experience', name: 'Experience Level' },
-        { field: 'availability', name: 'Availability' },
-        { field: 'motivation', name: 'Motivation' }
-    ];
-    
-    requiredFields.forEach(({ field, name }) => {
-        if (!formData[field] || formData[field].trim() === '') {
-            errors.push(`${name} is required`);
-        }
+  // Show modal and pre-select program
+  applyButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const selectedProgram = button.dataset.program;
+      modal.classList.add("open");
+      form.classList.remove("hidden");
+      successState.classList.add("hidden");
+      form.program.value = selectedProgram;
     });
-    
-    // Email validation
-    if (formData.email && !validateEmail(formData.email)) {
-        errors.push('Please enter a valid email address');
-    }
-    
-    // Phone validation
-    if (formData.phone && !validatePhone(formData.phone)) {
-        errors.push('Please enter a valid phone number');
-    }
-    
-    // Motivation length validation
-    if (formData.motivation && formData.motivation.length < 50) {
-        errors.push('Please provide a more detailed motivation (at least 50 characters)');
-    }
-    
-    return errors;
-}
+  });
 
-// Show error messages in the form
-function showErrorMessages(errors) {
-    // Remove existing error messages
-    const existingErrors = document.querySelectorAll('.form-error-message');
-    existingErrors.forEach(error => error.remove());
-    
-    if (errors.length > 0) {
-        const errorContainer = document.createElement('div');
-        errorContainer.className = 'form-error-message';
-        errorContainer.style.cssText = `
-            background: #fee2e2;
-            border: 1px solid #fecaca;
-            color: #dc2626;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            font-size: 14px;
-        `;
-        
-        const errorList = document.createElement('ul');
-        errorList.style.cssText = 'margin: 0; padding-left: 20px;';
-        
-        errors.forEach(error => {
-            const errorItem = document.createElement('li');
-            errorItem.textContent = error;
-            errorList.appendChild(errorItem);
-        });
-        
-        errorContainer.appendChild(errorList);
-        
-        const form = document.getElementById('applicationForm');
-        if (form) {
-            form.insertBefore(errorContainer, form.firstChild);
-        }
-    }
-}
+  // Close modal
+  closeBtn.addEventListener("click", () => modal.classList.remove("open"));
+  cancelBtn.addEventListener("click", () => modal.classList.remove("open"));
 
-// Show success message
-function showSuccessMessage(message) {
-    const successContainer = document.createElement('div');
-    successContainer.className = 'form-success-message';
-    successContainer.style.cssText = `
-        background: #d1fae5;
-        border: 1px solid #a7f3d0;
-        color: #065f46;
-        padding: 12px;
-        border-radius: 8px;
-        margin-bottom: 16px;
-        font-size: 14px;
-    `;
-    successContainer.textContent = message;
-    
-    const form = document.getElementById('applicationForm');
-    if (form) {
-        form.insertBefore(successContainer, form.firstChild);
-    }
-}
+  // Variable to track if submission is in progress
+  let isSubmitting = false;
 
-// Submit application to Supabase
-async function submitApplicationToSupabase(formData) {
-    if (!supabase) {
-        return {
-            success: false,
-            error: 'Supabase not initialized',
-            message: 'Database connection not available. Please check configuration.'
-        };
+  // Form submit - Remove any existing listeners first
+  const newForm = form.cloneNode(true);
+  form.parentNode.replaceChild(newForm, form);
+  
+  // Add single event listener to the cloned form
+  newForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent event bubbling
+    e.stopImmediatePropagation(); // Stop other listeners
+    
+    // Prevent double submission
+    if (isSubmitting) {
+      console.log("🛑 Submission already in progress, ignoring");
+      return;
     }
+    
+    isSubmitting = true;
+    console.log("🔍 Form submission started");
+
+    const formData = {
+      firstName: newForm.firstName.value.trim(),
+      surname: newForm.surname.value.trim(),
+      email: newForm.email.value.trim().toLowerCase(),
+      phone: newForm.phone.value.trim(),
+      program: newForm.program.value,
+      experience: newForm.experience.value,
+      availability: newForm.availability.value,
+      motivation: newForm.motivation.value.trim()
+    };
+
+    console.log("📝 Form data:", formData);
+
+    // Get submit button reference
+    const submitBtn = document.getElementById("formSubmit");
 
     try {
-        // Prepare data for insertion
-        const applicationData = {
-            first_name: formData.firstName,
-            surname: formData.surname,
-            email: formData.email,
-            phone: formData.phone,
-            program: formData.program,
-            experience: formData.experience,
-            availability: formData.availability,
-            motivation: formData.motivation,
-            application_date: new Date().toISOString(),
-            status: 'pending'
-        };
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.querySelector(".submit-text").classList.add("hidden");
+      submitBtn.querySelector(".submit-loading").classList.remove("hidden");
 
-        // Insert into Supabase
-        const { data, error } = await supabase
-            .from('candidate_applications')
-            .insert([applicationData])
-            .select();
+      // 🔍 Real-time duplicate check BEFORE submission
+      console.log("🔍 Checking for duplicates...");
+      const isDuplicate = await checkIfUserAlreadyApplied(formData.email, formData.phone);
+      console.log("🔍 Duplicate check result:", isDuplicate);
+      
+      if (isDuplicate) {
+        console.log("❌ Duplicate found - stopping submission");
+        
+        // Hide loading state
+        submitBtn.disabled = false;
+        submitBtn.querySelector(".submit-text").classList.remove("hidden");
+        submitBtn.querySelector(".submit-loading").classList.add("hidden");
+        
+        // Reset submission flag
+        isSubmitting = false;
+        
+        // Ensure success state is hidden
+        successState.classList.add("hidden");
+        newForm.classList.remove("hidden");
+        
+        alert("You have already submitted an application with this email or phone number.");
+        return; // Stop execution here
+      }
 
-        if (error) {
-            console.error('Supabase error:', error);
-            return {
-                success: false,
-                error: error.message,
-                message: 'There was an error submitting your application. Please try again.'
-            };
-        }
+      console.log("✅ No duplicate found - proceeding with submission");
 
-        return {
-            success: true,
-            data: data[0],
-            message: 'Application submitted successfully! We will review your application and get back to you within 5-7 business days.'
-        };
+      // Proceed with submission
+      const result = await submitApplicationToSupabase(formData);
+      console.log("📤 Submission result:", result);
 
-    } catch (error) {
-        console.error('Network error:', error);
-        return {
-            success: false,
-            error: error.message,
-            message: 'Network error. Please check your connection and try again.'
-        };
-    }
-}
+      // Hide loading state
+      submitBtn.disabled = false;
+      submitBtn.querySelector(".submit-text").classList.remove("hidden");
+      submitBtn.querySelector(".submit-loading").classList.add("hidden");
 
-// Enhanced application modal functionality
-function initializeSupabaseApplicationModal() {
-    const modal = document.getElementById("applicationModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalClose = document.getElementById("modalClose");
-    const applicationForm = document.getElementById("applicationForm");
-    const modalSuccess = document.getElementById("modalSuccess");
-    const formCancel = document.getElementById("formCancel");
-    const formSubmit = document.getElementById("formSubmit");
+      if (result && result.success === true) {
+        console.log("✅ Submission successful - showing success modal");
+        newForm.reset();
+        newForm.classList.add("hidden");
+        successState.classList.remove("hidden");
 
-    if (!modal) return;
-
-    // Open modal
-    function openModal(programName = "") {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-
-        if (programName && modalTitle) {
-            modalTitle.textContent = `Apply for ${programName}`;
-        }
-
-        // Pre-select program if specified
-        const programSelect = applicationForm?.querySelector('select[name="program"]');
-        if (programSelect && programName) {
-            programSelect.value = programName;
-        }
-    }
-
-    // Close modal
-    function closeModal() {
-        modal.classList.remove("active");
-        document.body.style.overflow = "";
-
-        // Reset form after a delay
         setTimeout(() => {
-            applicationForm?.reset();
-            applicationForm?.classList.remove("hidden");
-            modalSuccess?.classList.add("hidden");
-
-            // Remove error and success messages
-            const messages = document.querySelectorAll('.form-error-message, .form-success-message');
-            messages.forEach(message => message.remove());
-
-            // Reset submit button
-            const submitText = formSubmit?.querySelector(".submit-text");
-            const submitLoading = formSubmit?.querySelector(".submit-loading");
-            if (submitText && submitLoading) {
-                submitText.classList.remove("hidden");
-                submitLoading.classList.add("hidden");
-            }
-            if (formSubmit) formSubmit.disabled = false;
-        }, 300);
+          modal.classList.remove("open");
+          successState.classList.add("hidden");
+          newForm.classList.remove("hidden");
+        }, 5000);
+      } else {
+        console.log("❌ Submission failed:", result?.message);
+        alert(result?.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("💥 Unexpected error during form submission:", error);
+      
+      // Hide loading state
+      submitBtn.disabled = false;
+      submitBtn.querySelector(".submit-text").classList.remove("hidden");
+      submitBtn.querySelector(".submit-loading").classList.add("hidden");
+      
+      alert("An unexpected error occurred. Please try again.");
     }
-
-    // Program application buttons
-    const programApplyBtns = document.querySelectorAll(".program-apply");
-    programApplyBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const programName = btn.getAttribute("data-program");
-            openModal(programName);
-        });
-    });
-
-    // General apply button
-    const generalApplyBtn = document.querySelector(".general-apply");
-    generalApplyBtn?.addEventListener("click", () => openModal());
-
-    // Close modal events
-    modalClose?.addEventListener("click", closeModal);
-    formCancel?.addEventListener("click", closeModal);
-
-    // Close modal when clicking outside
-    modal?.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    // Enhanced form submission with Supabase
-    applicationForm?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(applicationForm);
-        const applicationData = {
-            firstName: formData.get('firstName'),
-            surname: formData.get('surname'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            program: formData.get('program'),
-            experience: formData.get('experience'),
-            availability: formData.get('availability'),
-            motivation: formData.get('motivation')
-        };
-
-        // Validate form data
-        const validationErrors = validateFormData(applicationData);
-        if (validationErrors.length > 0) {
-            showErrorMessages(validationErrors);
-            return;
-        }
-
-        // Show loading state
-        const submitText = formSubmit?.querySelector(".submit-text");
-        const submitLoading = formSubmit?.querySelector(".submit-loading");
-        if (submitText && submitLoading && formSubmit) {
-            submitText.classList.add("hidden");
-            submitLoading.classList.remove("hidden");
-            formSubmit.disabled = true;
-        }
-
-        // Remove any existing messages
-        showErrorMessages([]);
-
-        try {
-            // Submit to Supabase
-            const result = await submitApplicationToSupabase(applicationData);
-
-            if (result.success) {
-                // Show success state
-                applicationForm?.classList.add("hidden");
-                modalSuccess?.classList.remove("hidden");
-
-                // Update success message if needed
-                const successMessage = modalSuccess?.querySelector('p');
-                if (successMessage) {
-                    successMessage.textContent = result.message;
-                }
-
-                // Auto-close after 4 seconds
-                setTimeout(closeModal, 4000);
-            } else {
-                // Show error message
-                showErrorMessages([result.message]);
-                
-                // Reset submit button
-                if (submitText && submitLoading && formSubmit) {
-                    submitText.classList.remove("hidden");
-                    submitLoading.classList.add("hidden");
-                    formSubmit.disabled = false;
-                }
-            }
-        } catch (error) {
-            console.error('Submission error:', error);
-            showErrorMessages(['An unexpected error occurred. Please try again.']);
-            
-            // Reset submit button
-            if (submitText && submitLoading && formSubmit) {
-                submitText.classList.remove("hidden");
-                submitLoading.classList.add("hidden");
-                formSubmit.disabled = false;
-            }
-        }
-    });
-
-    // Escape key to close modal
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("active")) {
-            closeModal();
-        }
-    });
-}
-
-// Initialize when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-    // Initialize Supabase
-    initializeSupabase();
     
-    // Replace the original application modal with Supabase-enabled version
-    initializeSupabaseApplicationModal();
+    // Reset submission flag
+    isSubmitting = false;
+  });
+
+  // Update close button references to work with cloned form
+  const newCloseBtn = document.getElementById("modalClose");
+  const newCancelBtn = document.getElementById("formCancel");
+  
+  newCloseBtn.addEventListener("click", () => modal.classList.remove("open"));
+  newCancelBtn.addEventListener("click", () => modal.classList.remove("open"));
 });
 
-// Database schema for reference (to be created in Supabase dashboard)
-const DATABASE_SCHEMA = `
-CREATE TABLE IF NOT EXISTS candidate_applications (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    surname VARCHAR(100) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    program VARCHAR(100) NOT NULL,
-    experience VARCHAR(50) NOT NULL,
-    availability VARCHAR(50) NOT NULL,
-    motivation TEXT NOT NULL,
-    cv_file_path VARCHAR(500),
-    application_date TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    status VARCHAR(20) DEFAULT 'pending',
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+// ✅ Enhanced duplicate check with debugging
+async function checkIfUserAlreadyApplied(email, phone) {
+  console.log("🔍 checkIfUserAlreadyApplied called with:", { email, phone });
+  
+  if (!supabase) {
+    console.log("❌ Supabase not initialized");
+    return false;
+  }
 
--- Create indexes for better performance
-CREATE INDEX IF NOT EXISTS idx_candidate_applications_email ON candidate_applications(email);
-CREATE INDEX IF NOT EXISTS idx_candidate_applications_date ON candidate_applications(application_date);
-CREATE INDEX IF NOT EXISTS idx_candidate_applications_status ON candidate_applications(status);
-`;
+  try {
+    console.log("🔍 Checking email:", email);
+    const { data: emailMatch, error: emailError } = await supabase
+      .from("candidate_applications")
+      .select("id")
+      .eq("email", email);
+    
+    if (emailError) {
+      console.error("❌ Email check error:", emailError);
+      return false;
+    }
+    
+    console.log("📧 Email check result:", emailMatch);
+    if (emailMatch && emailMatch.length > 0) {
+      console.log("❌ Email duplicate found");
+      return true;
+    }
 
-console.log('Supabase Form Handler loaded. Database schema:', DATABASE_SCHEMA);
+    console.log("🔍 Checking phone:", phone);
+    const { data: phoneMatch, error: phoneError } = await supabase
+      .from("candidate_applications")
+      .select("id")
+      .eq("phone", phone);
+    
+    if (phoneError) {
+      console.error("❌ Phone check error:", phoneError);
+      return false;
+    }
+    
+    console.log("📱 Phone check result:", phoneMatch);
+    if (phoneMatch && phoneMatch.length > 0) {
+      console.log("❌ Phone duplicate found");
+      return true;
+    }
 
+    console.log("✅ No duplicates found");
+    return false;
+  } catch (err) {
+    console.error("💥 Error in duplicate check:", err);
+    return false;
+  }
+}
+
+// ✅ Enhanced submission function with debugging
+async function submitApplicationToSupabase(formData) {
+  console.log("📤 submitApplicationToSupabase called with:", formData);
+  
+  if (!supabase) {
+    console.log("❌ Supabase not available");
+    return {
+      success: false,
+      message: "Database connection not available. Please check configuration."
+    };
+  }
+
+  try {
+    const insertData = {
+      first_name: formData.firstName,
+      surname: formData.surname,
+      email: formData.email,
+      phone: formData.phone,
+      program: formData.program,
+      experience: formData.experience,
+      availability: formData.availability,
+      motivation: formData.motivation,
+      application_date: new Date().toISOString(),
+      status: "pending"
+    };
+    
+    console.log("📝 Inserting data:", insertData);
+
+    const { data, error } = await supabase
+      .from("candidate_applications")
+      .insert([insertData])
+      .select();
+
+    if (error) {
+      console.error("❌ Supabase insertion error:", error);
+      return {
+        success: false,
+        message: error.message || "Error saving application."
+      };
+    }
+
+    console.log("✅ Data inserted successfully:", data);
+    return {
+      success: true,
+      data: data[0],
+      message: "Application submitted successfully!"
+    };
+  } catch (err) {
+    console.error("💥 Unexpected error in submission:", err);
+    return {
+      success: false,
+      message: "Unexpected error occurred: " + err.message
+    };
+  }
+}
