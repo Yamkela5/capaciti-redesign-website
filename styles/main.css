@@ -1102,8 +1102,7 @@ section {
 
         .carousel-nav.next {
             right: .9rem;
-                   top: 150px;
-            padding-bottom: -90px;
+            
         }
 
         /* Carousel Dots */
@@ -1849,8 +1848,6 @@ section {
   background: var(--capaciti-navy);
   color: white;
   padding: 4rem 0 2rem;
-  margin-top: 110px;
- 
 }
 
 .footer-content {
