@@ -6,6 +6,7 @@
     <title>Our Impact - CAPACITI</title>
     <meta name="description" content="Discover CAPACITI's impact on tech education and career transformation across Africa.">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="./styles/bot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -214,9 +215,56 @@
         </div>
     </footer>
 
+
+    
+         <div id="chatbot" class="chatbot">
+        <!-- Chat Container -->
+        <div id="chatContainer" class="chat-container">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="chat-info">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant" class="chat-avatar">
+                    <span>CAPACITI Assistant</span>
+                </div>
+                <button id="chatClose" class="chat-close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <!-- Messages -->
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="Bot" class="message-avatar">
+                    <div class="message-content">
+                        Hi! I'm the CAPACITI Assistant. I can help you learn about our tech career acceleration programs, team, and how we're transforming lives through technology education. What would you like to know?
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Input -->
+            <div class="chat-input">
+                <input type="text" id="chatInputField" placeholder="Ask me anything about CAPACITI..." maxlength="500">
+                <button id="chatSend">
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <button id="chatToggle" class="chat-toggle">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant">
+        </button>
+
+        <!-- Notification Badge -->
+        <div id="chatNotification" class="chat-notification">1</div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/impact.js"></script>
+    <script src="/scripts/bot.js"></script>
 </body>
 </html>

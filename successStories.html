@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - CAPACITI</title>
+    <meta name="description" content="Read inspiring success stories from CAPACITI alumni who have transformed their careers through our tech training programs.">
+    <link rel="icon" type="image/png" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/bot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <nav class="nav container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo" class="logo-img">
+                    <span class="logo-text">CAPACITI</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="programmes.html" class="nav-link">Programmes</a>
+                    <a href="impact.html" class="nav-link">Impact</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="news.html" class="nav-link">News & Events</a>
+                    <a href="opportunities.html" class="nav-link">Opportunities</a>
+                    <a href="contact.html" class="btn btn-primary">Work With Us</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="close-icon hidden"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-content">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                    <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+                    <a href="impact.html" class="mobile-nav-link">Impact</a>
+                    <a href="blog.html" class="mobile-nav-link">Blog</a>
+                    <a href="news.html" class="mobile-nav-link">News & Events</a>
+                    <a href="opportunities.html" class="mobile-nav-link">Opportunities</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="floating-shapes">
+            <div class="shape shape-circle"></div>
+            <div class="shape shape-triangle"></div>
+            <div class="shape shape-square"></div>
+            <div class="shape shape-hexagon"></div>
+        </div>
+        <div class="hero-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Success Stories</h1>
+            <p>Hear from our alumni about their transformative journeys and how CAPACITI's programs helped them achieve their tech career goals.</p>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="news-section-title">Our Alumni Success Stories</h2>
+            <div id="loadingMessage" class="loading-message">
+                <p>Loading success stories...</p>
+            </div>
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p>Unable to load stories. Please try again later.</p>
+            </div>
+            <div class="news-grid" id="storiesGrid">
+                <!-- Dynamic stories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Modals Container -->
+    <div id="modalsContainer">
+        <!-- Dynamic modals will be created here -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png" alt="CAPACITI Logo">
+                        <span>CAPACITI</span>
+                    </div>
+                    <p>Accelerating tech careers and transforming lives through innovative training programs and career support.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/capacitiza/posts/?feedView=all" class="social-link">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                        <a href="https://x.com/CapaCiTiZA" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/capacitiza/" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Programs</h4>
+                        <ul>
+                            <li><a href="programmes.html">Web Development</a></li>
+                            <li><a href="programmes.html">Data Science</a></li>
+                            <li><a href="programmes.html">Digital Marketing</a></li>
+                            <li><a href="programmes.html">Software Engineering</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#team">Our Team</a></li>
+                            <li><a href="impact.html">Impact</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="news.html">News & Events</a></li>
+                            <li><a href="opportunities.html">Opportunities</a></li>
+                            <li><a href="#partners">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with our latest programs and success stories.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button class="newsletter-btn">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 CAPACITI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="chatbot" class="chatbot">
+        <div id="chatContainer" class="chat-container">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant" class="chat-avatar">
+                    <span>CAPACITI Assistant</span>
+                </div>
+                <button id="chatClose" class="chat-close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="Bot" class="message-avatar">
+                    <div class="message-content">
+                        Hi! I'm the CAPACITI Assistant. I can help you learn about our tech career acceleration programs, team, and how we're transforming lives through technology education. What would you like to know?
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInputField" placeholder="Ask me anything about CAPACITI..." maxlength="500">
+                <button id="chatSend">
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </div>
+        <button id="chatToggle" class="chat-toggle">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant">
+        </button>
+        <div id="chatNotification" class="chat-notification">1</div>
+    </div>
+
+    <!-- Additional CSS for loading and error states -->
+    <style>
+        .loading-message, .error-message {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .error-message {
+            color: #f25251;
+        }
+
+        .news-grid {
+            min-height: 400px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-close:hover {
+            color: #f25251;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1d2951;
+            margin: 0;
+            padding-right: 40px;
+        }
+
+        .modal-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h3 {
+            color: #1d2951;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .modal-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .modal-tag {
+            background: linear-gradient(135deg, #1d2951 0%, #8115d0 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/bot.js"></script>
+    <script>
+        // Initialize Supabase client
+        let supabaseClient;
+        
+        function initializeSupabase() {
+            try {
+                if (typeof window.supabase === 'undefined') {
+                    throw new Error('Supabase library not loaded');
+                }
+                
+                supabaseClient = window.supabase.createClient(
+                    'https://dxfhhmdiiseqiwxvaxhe.supabase.co', 
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZmhobWRpaXNlcWl3eHZheGhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEzNTUxMzYsImV4cCI6MjA2NjkzMTEzNn0.jssYfF9ndvCMSUI6KfQuzZfYYCcA97c-Uxs8GTOz9-Q'
+                );
+                return true;
+            } catch (error) {
+                console.error('Error initializing Supabase:', error);
+                return false;
+            }
+        }
+
+        // Load success stories from database
+        async function loadSuccessStories() {
+            const loadingMessage = document.getElementById('loadingMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const storiesGrid = document.getElementById('storiesGrid');
+            const modalsContainer = document.getElementById('modalsContainer');
+
+            try {
+                if (!supabaseClient) {
+                    throw new Error('Supabase client not initialized');
+                }
+
+                // Show loading
+                loadingMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                storiesGrid.innerHTML = '';
+                modalsContainer.innerHTML = '';
+
+                // Fetch stories from database
+                const { data: stories, error } = await supabaseClient
+                    .from('success_stories')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) {
+                    throw error;
+                }
+
+                // Hide loading
+                loadingMessage.style.display = 'none';
+
+                if (!stories || stories.length === 0) {
+                    storiesGrid.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">No success stories available yet. Check back soon!</p>';
+                    return;
+                }
+
+                // Generate story cards and modals
+                stories.forEach((story, index) => {
+                    const storyDate = new Date(story.created_at);
+                    const timeAgo = getTimeAgo(storyDate);
+                    const readTime = Math.ceil(story.content.length / 1000) || 1; // Rough estimate: 1000 chars = 1 min
+                    
+                    // Create story card
+                    const storyCard = document.createElement('article');
+                    storyCard.className = 'news-card';
+                    storyCard.innerHTML = `
+                        <div class="news-image">
+                            <div class="news-date-badge">${storyDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+                            <div class="news-category-overlay">
+                                <span class="news-category-text">Success Story</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-category">Success Story</span>
+                                <span class="news-time">
+                                    <i class="far fa-clock meta-icon"></i>
+                                    ${timeAgo}
+                                </span>
+                                <span class="news-read-time">
+                                    <i class="far fa-eye meta-icon"></i>
+                                    ${readTime} min read
+                                </span>
+                            </div>
+                            <h3 class="news-title">${story.title}</h3>
+                            <p class="news-excerpt">
+                                ${story.content.substring(0, 150)}${story.content.length > 150 ? '...' : ''}
+                            </p>
+                            <button class="news-read-more" onclick="openModal('storyModal${story.id}')">
+                                Read More
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    `;
+                    storiesGrid.appendChild(storyCard);
+
+                    // Create modal
+                    const modal = document.createElement('div');
+                    modal.id = `storyModal${story.id}`;
+                    modal.className = 'modal-overlay';
+                    modal.innerHTML = `
+                        <div class="modal">
+                            <div class="modal-header">
+                                <button class="modal-close" onclick="closeModal('storyModal${story.id}')">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <h2 class="modal-title">${story.title}</h2>
+                                <div class="modal-meta">
+                                    <span>Success Story • ${storyDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} • ${readTime} min read</span>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                ${story.image ? `<img src="${story.image}" alt="${story.title}" class="modal-image">` : ''}
+                                <div class="modal-content">
+                                    ${formatContent(story.content)}
+                                </div>
+                                <div class="modal-tags">
+                                    <span class="modal-tag">Success Story</span>
+                                    <span class="modal-tag">Career Transformation</span>
+                                    <span class="modal-tag">${story.author}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    modalsContainer.appendChild(modal);
+                });
+
+            } catch (error) {
+                console.error('Error loading success stories:', error);
+                loadingMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
+                
+                // Show fallback content or retry option
+                errorMessage.innerHTML = `
+                    <p>Unable to load stories. Please try again later.</p>
+                    <button onclick="loadSuccessStories()" style="background: #8115d0; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+                        Retry
+                    </button>
+                `;
+            }
+        }
+
+        // Helper function to format time ago
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays === 1) return '1 day ago';
+            if (diffDays < 7) return `${diffDays} days ago`;
+            if (diffDays < 14) return '1 week ago';
+            if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+            if (diffDays < 60) return '1 month ago';
+            return `${Math.floor(diffDays / 30)} months ago`;
+        }
+
+        // Helper function to format content with basic HTML
+        function formatContent(content) {
+            return content
+                .split('\n\n')
+                .map(paragraph => `<p>${paragraph.trim()}</p>`)
+                .join('');
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        if (mobileMenuBtn && mobileNav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+        }
+
+        // Initialize everything when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for Supabase to load
+            setTimeout(() => {
+                if (initializeSupabase()) {
+                    console.log('✅ Supabase initialized successfully');
+                    loadSuccessStories();
+                    
+                    // Set up real-time subscription for live updates
+                    try {
+                        supabaseClient
+                            .channel('success_stories_public')
+                            .on('postgres_changes', { 
+                                event: '*', 
+                                schema: 'public', 
+                                table: 'success_stories' 
+                            }, (payload) => {
+                                console.log('📡 Real-time update received:', payload);
+                                // Reload stories when changes occur
+                                loadSuccessStories();
+                            })
+                            .subscribe();
+                        console.log('📡 Real-time subscription active');
+                    } catch (error) {
+                        console.error('Error setting up real-time subscription:', error);
+                    }
+                } else {
+                    console.error('❌ Failed to initialize Supabase');
+                    document.getElementById('loadingMessage').style.display = 'none';
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('errorMessage').innerHTML = `
+                        <p>Failed to initialize database connection. Please refresh the page.</p>
+                        <button onclick="window.location.reload()" style="background: #8115d0; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+                            Refresh Page
+                        </button>
+                    `;
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
