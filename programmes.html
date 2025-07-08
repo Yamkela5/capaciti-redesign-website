@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/bot.css">
-    <!-- Favicon -->
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="1AM57S84aLR_J2RkZE7fZ";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_1750254041719-cQhUZiT8A9lGksPSIt6tbKjqE69XrY.png">
     
     <!-- CSS -->
@@ -77,76 +78,105 @@
                     <p class="section-description">Our carefully designed programs combine technical skills, industry experience, and career support to ensure you're ready for success in the tech industry.</p>
                 </div>
 
-                <!-- Programs Grid -->
-                <div class="programs-grid">
-                    <div class="program-card">
-                        <div class="program-accent"></div>
-                        <div class="program-icon">
-                            <i data-lucide="code"></i>
-                        </div>
-                        <h3>Web Development</h3>
-                        <p>Master frontend and backend development with modern frameworks like React, Node.js, and databases.</p>
-                        <ul class="program-features">
-                            <li>HTML5, CSS3, JavaScript</li>
-                            <li>React & Node.js</li>
-                            <li>Database Management</li>
-                            <li>API Development</li>
-                        </ul>
-                        <div class="program-duration">12 Weeks</div>
-                        <button class="btn btn-primary program-apply" data-program="Web Development">Apply Now</button>
-                    </div>
+                  <!-- Filter Controls -->
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">
+                <span>All Programs</span>
+            </button>
+            <button class="filter-btn" data-filter="development">
+                <span>Development</span>
+            </button>
+            <button class="filter-btn" data-filter="data">
+                <span>Data Science</span>
+            </button>
+            <button class="filter-btn" data-filter="support">
+                <span>Tech Support</span>
+            </button>
+            <button class="filter-btn" data-filter="short">
+                <span>Short Term (≤12 weeks)</span>
+            </button>
+            <button class="filter-btn" data-filter="long">
+                <span>Long Term (>12 weeks)</span>
+            </button>
+        </div>
 
-                    <div class="program-card">
-                        <div class="program-accent"></div>
-                        <div class="program-icon">
-                            <i data-lucide="bar-chart-3"></i>
-                        </div>
-                        <h3>Data Science</h3>
-                        <p>Learn to extract insights from data using Python, machine learning, and visualization tools.</p>
-                        <ul class="program-features">
-                            <li>Python & R Programming</li>
-                            <li>Machine Learning</li>
-                            <li>Data Visualization</li>
-                            <li>Statistical Analysis</li>
-                        </ul>
-                        <div class="program-duration">16 Weeks</div>
-                        <button class="btn btn-primary program-apply" data-program="Data Science">Apply Now</button>
-                    </div>
+        <!-- Filter Results Info -->
+        <div class="filter-results" id="filterResults">
+            Showing 4 programs
+        </div>
 
-                    <div class="program-card">
-                        <div class="program-accent"></div>
-                        <div class="program-icon">
-                            <i data-lucide="megaphone"></i>
-                        </div>
-                        <h3>Digital Marketing</h3>
-                        <p>Master digital marketing strategies, SEO, social media, and analytics for the modern marketplace.</p>
-                        <ul class="program-features">
-                            <li>SEO & SEM</li>
-                            <li>Social Media Marketing</li>
-                            <li>Analytics & Reporting</li>
-                            <li>Content Strategy</li>
-                        </ul>
-                        <div class="program-duration">10 Weeks</div>
-                        <button class="btn btn-primary program-apply" data-program="Digital Marketing">Apply Now</button>
-                    </div>
-
-                    <div class="program-card">
-                        <div class="program-accent"></div>
-                        <div class="program-icon">
-                            <i data-lucide="terminal"></i>
-                        </div>
-                        <h3>Software Engineering</h3>
-                        <p>Build robust applications with modern programming languages and industry best practices.</p>
-                        <ul class="program-features">
-                            <li>Object-Oriented Programming</li>
-                            <li>Software Architecture</li>
-                            <li>Testing & Debugging</li>
-                            <li>Version Control</li>
-                        </ul>
-                        <div class="program-duration">20 Weeks</div>
-                        <button class="btn btn-primary program-apply" data-program="Software Engineering">Apply Now</button>
-                    </div>
+        <!-- Programs Grid -->
+        <div class="programs-grid">
+            <div class="program-card" data-category="development" data-duration="12" data-keywords="web development html css javascript react nodejs frontend backend">
+                <div class="program-accent"></div>
+                <div class="program-icon">
+                    <i data-lucide="code"></i>
                 </div>
+                <h3>Web Development</h3>
+                <p>Master frontend and backend development with modern frameworks like React, Node.js, and databases.</p>
+                <ul class="program-features">
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>React & Node.js</li>
+                    <li>Database Management</li>
+                    <li>API Development</li>
+                </ul>
+                <div class="program-duration">12 Weeks</div>
+                <button class="btn btn-primary program-apply" data-program="Web Development">Apply Now</button>
+            </div>
+
+            <div class="program-card" data-category="data" data-duration="16" data-keywords="data science python machine learning statistics visualization analytics">
+                <div class="program-accent"></div>
+                <div class="program-icon">
+                    <i data-lucide="bar-chart-3"></i>
+                </div>
+                <h3>Data Science</h3>
+                <p>Learn to extract insights from data using Python, machine learning, and visualization tools.</p>
+                <ul class="program-features">
+                    <li>Python & R Programming</li>
+                    <li>Machine Learning</li>
+                    <li>Data Visualization</li>
+                    <li>Statistical Analysis</li>
+                </ul>
+                <div class="program-duration">16 Weeks</div>
+                <button class="btn btn-primary program-apply" data-program="Data Science">Apply Now</button>
+            </div>
+
+            <div class="program-card" data-category="support" data-duration="8" data-keywords="tech support helpdesk troubleshooting customer service technical assistance hardware software networking">
+                <div class="program-accent"></div>
+                <div class="program-icon">
+                    <i data-lucide="headphones"></i>
+                </div>
+                <h3>Tech Support</h3>
+                <p>Become a skilled technical support specialist with expertise in troubleshooting, customer service, and system management.</p>
+                <ul class="program-features">
+                    <li>Hardware & Software Troubleshooting</li>
+                    <li>Customer Service Excellence</li>
+                    <li>Network Administration</li>
+                    <li>Help Desk Management</li>
+                </ul>
+                <div class="program-duration">8 Weeks</div>
+                <button class="btn btn-primary program-apply" data-program="Tech Support">Apply Now</button>
+            </div>
+
+            <div class="program-card" data-category="development" data-duration="20" data-keywords="software engineering programming architecture testing debugging version control">
+                <div class="program-accent"></div>
+                <div class="program-icon">
+                    <i data-lucide="terminal"></i>
+                </div>
+                <h3>Software Engineering</h3>
+                <p>Build robust applications with modern programming languages and industry best practices.</p>
+                <ul class="program-features">
+                    <li>Object-Oriented Programming</li>
+                    <li>Software Architecture</li>
+                    <li>Testing & Debugging</li>
+                    <li>Version Control</li>
+                </ul>
+                <div class="program-duration">20 Weeks</div>
+                <button class="btn btn-primary program-apply" data-program="Software Engineering">Apply Now</button>
+            </div>
+        </div>
+    </div>
+
 
                
             </div>
@@ -277,7 +307,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Phone Number *</label>
-                                <input type="tel" name="phone" required placeholder="+27 XX XXX XXXX">
+                                <input 
+  type="tel" 
+  name="phone" 
+  id="phone" 
+  required 
+  placeholder="e.g. 0712345678" 
+  pattern="\d{10}" 
+  maxlength="10" 
+  title="Phone number must be exactly 10 digits.">
+
                             </div>
                         </div>
                     </div>
@@ -383,50 +422,7 @@
 
 
 
-             <div id="chatbot" class="chatbot">
-        <!-- Chat Container -->
-        <div id="chatContainer" class="chat-container">
-            <!-- Header -->
-            <div class="chat-header">
-                <div class="chat-info">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant" class="chat-avatar">
-                    <span>CAPACITI Assistant</span>
-                </div>
-                <button id="chatClose" class="chat-close">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-
-            <!-- Messages -->
-            <div id="chatMessages" class="chat-messages">
-                <div class="message bot-message">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="Bot" class="message-avatar">
-                    <div class="message-content">
-                        Hi! I'm the CAPACITI Assistant. I can help you learn about our tech career acceleration programs, team, and how we're transforming lives through technology education. What would you like to know?
-                    </div>
-                </div>
-
-
-            </div>
-
-            <!-- Input -->
-            <div class="chat-input">
-                <input type="text" id="chatInputField" placeholder="Ask me anything about CAPACITI..." maxlength="500">
-                <button id="chatSend">
-                    <i data-lucide="send"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Toggle Button -->
-        <button id="chatToggle" class="chat-toggle">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant">
-        </button>
-
-        <!-- Notification Badge -->
-        <div id="chatNotification" class="chat-notification">1</div>
-    </div>
-
+      
     <!-- Supabase JavaScript Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     

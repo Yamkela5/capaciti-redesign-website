@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/blog.css">
-    <link rel="stylesheet" href="/styles/bot.css">
-<!DOCTYPE html>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="1AM57S84aLR_J2RkZE7fZ";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script><!DOCTYPE html>
 <html lang="en">
 </head>
 
@@ -110,7 +111,7 @@
                 <!-- News Card 1 -->
                 <article class="news-card">
                     <div class="news-image">
-                         <img src="/images/edu.png" alt="CAPACITI Tech Expo">
+                         <img src="/images/partners/edu.png" alt="CAPACITI Tech Expo">
                         <div class="news-date-badge">Dec 15, 2024</div>
                         <div class="news-category-overlay">
                             <span class="news-category-text">Technology</span>
@@ -146,7 +147,7 @@
                 <!-- News Card 2 -->
                 <article class="news-card">
                     <div class="news-image">
-                         <img src="/images/tech2.png" alt="CAPACITI Tech Expo">
+                         <img src="/images/partners/tech2.png" alt="CAPACITI Tech Expo">
                         <div class="news-date-badge">Dec 12, 2024</div>
                         <div class="news-category-overlay">
                             <span class="news-category-text">Career</span>
@@ -182,7 +183,7 @@
                 <!-- News Card 3 -->
                 <article class="news-card">
                     <div class="news-image">
-                         <!-- <img src="/images/tech1.png" alt="CAPACITI Tech Expo"> -->
+                         <img src="/images/partners/tech1.png" alt="CAPACITI Tech Expo">
                         <div class="news-date-badge">Dec 10, 2024</div>
                         <div class="news-category-overlay">
                             <span class="news-category-text">Data Science</span>
@@ -219,7 +220,7 @@
                 <!-- News Card 4 -->
                 <article class="news-card">
                     <div class="news-image">
-                         <img src="/images/success stories.png" alt="CAPACITI Tech Expo">
+                         <img src="/images/partners/success stories.png" alt="CAPACITI Tech Expo">
                         <div class="news-date-badge">Dec 10, 2024</div>
                         <div class="news-category-overlay">
                             <span class="news-category-text">Success stories</span>
@@ -514,40 +515,7 @@
     </script>
 
 
-         <div id="chatbot" class="chatbot">
-        <!-- Chat Container -->
-        <div id="chatContainer" class="chat-container">
-            <!-- Header -->
-            <div class="chat-header">
-                <div class="chat-info">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="CAPACITI Assistant" class="chat-avatar">
-                    <span>CAPACITI Assistant</span>
-                </div>
-                <button id="chatClose" class="chat-close">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-
-            <!-- Messages -->
-            <div id="chatMessages" class="chat-messages">
-                <div class="message bot-message">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%202%2C%202025%2C%2011_27_45%20AM%20%281%29_1750255211982-K6hJIQnlGYWADW4DREAjOgYBjFoGnE.png" alt="Bot" class="message-avatar">
-                    <div class="message-content">
-                        Hi! I'm the CAPACITI Assistant. I can help you learn about our tech career acceleration programs, team, and how we're transforming lives through technology education. What would you like to know?
-                    </div>
-                </div>
-
-
-            </div>
-
-            <!-- Input -->
-            <div class="chat-input">
-                <input type="text" id="chatInputField" placeholder="Ask me anything about CAPACITI..." maxlength="500">
-                <button id="chatSend">
-                    <i data-lucide="send"></i>
-                </button>
-            </div>
-        </div>
+      
 
         <!-- Toggle Button -->
         <button id="chatToggle" class="chat-toggle">

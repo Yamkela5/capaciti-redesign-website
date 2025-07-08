@@ -725,3 +725,48 @@ if (document.readyState === "loading") {
 } else {
   initializeLazyLoading()
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const programCards = document.querySelectorAll('.program-card');
+    const filterResults = document.getElementById('filterResults');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove "active" from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add "active" to clicked button
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+            let count = 0;
+
+            programCards.forEach(card => {
+                const category = card.dataset.category;
+                const duration = parseInt(card.dataset.duration, 10);
+
+                let show = false;
+
+                if (filter === 'all') {
+                    show = true;
+                } else if (filter === 'short') {
+                    show = duration <= 12;
+                } else if (filter === 'long') {
+                    show = duration > 12;
+                } else {
+                    show = category === filter;
+                }
+
+                if (show) {
+                    card.style.display = 'block';
+                    count++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            filterResults.textContent = `Showing ${count} program${count === 1 ? '' : 's'}`;
+        });
+    });
+});
+

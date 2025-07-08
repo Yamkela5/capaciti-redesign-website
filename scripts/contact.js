@@ -1,7 +1,6 @@
 // Contact page specific functionality
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize Lucide icons
-  const lucide = window.lucide // Declare the lucide variable
+  const lucide = window.lucide
   if (typeof lucide !== "undefined") {
     lucide.createIcons()
   }
@@ -21,7 +20,6 @@ function initializeHeader() {
 
   if (!header || !mobileMenuBtn || !mobileNav) return
 
-  // Scroll effect
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       header.style.background = "rgba(255, 255, 255, 0.98)"
@@ -34,7 +32,6 @@ function initializeHeader() {
     }
   })
 
-  // Mobile menu toggle
   mobileMenuBtn.addEventListener("click", () => {
     const isOpen = mobileNav.classList.contains("active")
 
@@ -49,7 +46,6 @@ function initializeHeader() {
     }
   })
 
-  // Close mobile menu when clicking on links
   const mobileNavLinks = mobileNav.querySelectorAll(".mobile-nav-link, .mobile-cta")
   mobileNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
@@ -59,7 +55,6 @@ function initializeHeader() {
     })
   })
 
-  // Close mobile menu when clicking outside
   document.addEventListener("click", (event) => {
     if (!header.contains(event.target) && mobileNav.classList.contains("active")) {
       mobileNav.classList.remove("active")
@@ -69,12 +64,11 @@ function initializeHeader() {
   })
 }
 
-// Contact form functionality
+// Contact form functionality (with real Formspree submission)
 function initializeContactForm() {
   const contactForm = document.getElementById("contactForm")
   const newsletterForm = document.querySelector(".newsletter-form")
 
-  // Main contact form
   if (contactForm) {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault()
@@ -83,32 +77,31 @@ function initializeContactForm() {
       const submitText = submitBtn?.querySelector(".submit-text")
       const submitLoading = submitBtn?.querySelector(".submit-loading")
 
-      // Show loading state
       if (submitText && submitLoading && submitBtn) {
         submitText.classList.add("hidden")
         submitLoading.classList.remove("hidden")
         submitBtn.disabled = true
       }
 
-      // Get form data
       const formData = new FormData(contactForm)
-      const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        subject: formData.get("subject"),
-        message: formData.get("message"),
+
+      try {
+        const response = await fetch("https://formspree.io/f/mwpbjgkb", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formData,
+        })
+
+        if (response.ok) {
+          showNotification("Thank you for your message! We'll get back to you within 24 hours.", "success")
+          contactForm.reset()
+        } else {
+          showNotification("Something went wrong. Please try again later.", "error")
+        }
+      } catch (error) {
+        showNotification("Failed to send. Please check your internet connection.", "error")
       }
 
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-
-      // Show success message
-      showNotification("Thank you for your message! We'll get back to you within 24 hours.", "success")
-
-      // Reset form
-      contactForm.reset()
-
-      // Reset button state
       if (submitText && submitLoading && submitBtn) {
         submitText.classList.remove("hidden")
         submitLoading.classList.add("hidden")
@@ -117,7 +110,6 @@ function initializeContactForm() {
     })
   }
 
-  // Newsletter form
   if (newsletterForm) {
     const newsletterInput = newsletterForm.querySelector(".newsletter-input")
     const newsletterBtn = newsletterForm.querySelector(".newsletter-btn")
@@ -136,26 +128,20 @@ function initializeContactForm() {
         return
       }
 
-      // Show loading state
       const originalHTML = newsletterBtn.innerHTML
       newsletterBtn.innerHTML = '<div class="loading-spinner"></div>'
       newsletterBtn.disabled = true
 
-      // Simulate subscription
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
-      // Show success message
       showNotification("Thank you for subscribing to our newsletter!", "success")
 
-      // Reset form
       if (newsletterInput) newsletterInput.value = ""
 
-      // Reset button
       newsletterBtn.innerHTML = originalHTML
       newsletterBtn.disabled = false
     })
 
-    // Enter key support
     newsletterInput?.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         newsletterBtn?.click()
@@ -164,12 +150,11 @@ function initializeContactForm() {
   }
 }
 
-// Map functionality (placeholder)
+// Map placeholder setup
 function initializeMap() {
   const mapContainer = document.querySelector(".contact-map")
 
   if (mapContainer) {
-    // Add interactive map placeholder
     mapContainer.innerHTML = `
       <div class="map-placeholder">
         <div class="map-icon">
@@ -184,29 +169,28 @@ function initializeMap() {
       </div>
     `
 
-    // Reinitialize icons
-    const lucide = window.lucide // Declare the lucide variable
+    const lucide = window.lucide
     if (typeof lucide !== "undefined") {
       lucide.createIcons()
     }
   }
 }
 
-// Open Google Maps
+// Open Google Maps with predefined address
 function openGoogleMaps() {
   const address = "Greenacres, Gqeberha, 6001, South Africa"
   const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
   window.open(url, "_blank")
 }
 
-// Utility functions
+// Validate email format
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
 }
 
+// Show notification message
 function showNotification(message, type = "info") {
-  // Create notification element
   const notification = document.createElement("div")
   notification.className = `notification notification-${type}`
   notification.innerHTML = `
@@ -219,25 +203,20 @@ function showNotification(message, type = "info") {
     </button>
   `
 
-  // Add to page
   document.body.appendChild(notification)
 
-  // Initialize icons
-  const lucide = window.lucide // Declare the lucide variable
+  const lucide = window.lucide
   if (typeof lucide !== "undefined") {
     lucide.createIcons()
   }
 
-  // Show notification
   setTimeout(() => notification.classList.add("show"), 100)
 
-  // Auto remove after 5 seconds
   setTimeout(() => {
     notification.classList.remove("show")
     setTimeout(() => notification.remove(), 300)
   }, 5000)
 
-  // Close button
   const closeBtn = notification.querySelector(".notification-close")
   closeBtn?.addEventListener("click", () => {
     notification.classList.remove("show")
